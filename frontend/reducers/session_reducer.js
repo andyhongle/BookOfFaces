@@ -1,8 +1,10 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions'
 import { LOGOUT_CURRENT_USER } from '../actions/session_actions'
 
+
 const _nullUser = Object.freeze({ id: null})
 
+// keep track of current user
 const sessionReducer = (state = _nullUser, action) => {
     Object.freeze(state);
     switch (action.type) {
