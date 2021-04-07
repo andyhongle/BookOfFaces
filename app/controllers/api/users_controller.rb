@@ -6,12 +6,12 @@ class Api::UsersController < ApplicationController
             login!(@user)
             render 'api/users/show'
         else
-            render json: {}
+            render json: @user.errors.full_messages, status: 422
         end
     end
 
     def update
-        
+
     end
 
     def destroy
