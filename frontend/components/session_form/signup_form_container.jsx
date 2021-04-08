@@ -3,15 +3,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { signup } from '../../actions/session_actions';
 import SessionForm from './session_form';
+import SignUpForm from './signup_form';
 
 const mSTP = (state) => ({
     errors: state.errors.session,
     formType: 'signup',
-    navLink: <Link to='/login'>Log In</Link>
+    navLink: <Link to='/signup'>Login instead </Link>
 });
 
 const mDTP = (dispatch) => ({
-    processForm: (user) => dispatch(signup(user))
+    signup: (user) => dispatch(signup(user))
 });
 
-export default connect(mSTP, mDTP)(SessionForm);
+export default connect(mSTP, mDTP)(SignUpForm);
