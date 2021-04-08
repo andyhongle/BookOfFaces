@@ -26,6 +26,7 @@ export const login = (user) => (dispatch) => (
     .then((currentUser) => dispatch(receiveCurrentUser(currentUser)),
     (err) => dispatch(receiveErrors(err.responseJSON)))
 )
+window.login = login
 
 export const logout = () => (dispatch) => (
     SessionAPIUtil.logout()
@@ -36,7 +37,9 @@ export const signup = (user) => (dispatch) => (
     SessionAPIUtil.signup(user)
     .then((currentUser) => dispatch(receiveCurrentUser(currentUser)),
     (err) => dispatch(receiveErrors(err.responseJSON)))
+   
 )
+window.signup = signup
 
 
 

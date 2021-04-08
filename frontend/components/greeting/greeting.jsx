@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Greeting = (props) => {
     const sessionLinks = () => (
-        <nav classname='login-signup'>
+        <nav className='login-signup'>
             <Link to='/login'>Login</Link>
             <Link to='/signup'>Signup</Link>
         </nav>
@@ -17,6 +17,5 @@ const Greeting = (props) => {
     );
     return props.currentUser ? personalGreeting() : sessionLinks();
 };
-
 
 export default Greeting;
