@@ -21,10 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const root = document.getElementById('root');
    
-    // Test start
-    window.getState = store.getState;
-    window.dispatch = store.dispatch
-    // Test end
     
     ReactDOM.render(<Root store={store} />, root)
 })

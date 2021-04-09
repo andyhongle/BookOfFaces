@@ -1,5 +1,4 @@
 import React from 'React'
-import { logoutCurrentUser } from '../../actions/session_actions';
 
 class NewsFeed extends React.Component {
     constructor(props) {
