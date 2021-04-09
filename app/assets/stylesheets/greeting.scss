@@ -7,12 +7,12 @@
 }
 
 .greeting-left .greeting-logo {
-    font-size: 35px;
+    font-size: 65px;
     color: #3973fa;
 }
 
 .greeting-left .greeting-bio {
-    font-size: 15px;
+    font-size: 25px;
     font-weight: 400;
 }
 
@@ -22,8 +22,8 @@
     align-items: center;
     justify-content: center;
     border: none;
-    height: 200px;
-    width: 230px;
+    height: 250px;
+    width: 300px;
     background: #FFFFFF;
     box-shadow: 3px 3px 8px 2px #cecccc;
     border-radius: 5px;
@@ -31,7 +31,7 @@
 
 .login-button, .signup-button {
     border-radius: 5px;
-    padding: 10px;
+    padding: 12px;
     background: #1877F2;
     color: #fff;
     width: 200px;
@@ -42,6 +42,7 @@
 .login-button a, .signup-button a {
     background: #1877F2;
     display: block;
+    font-size: 20px;
 }
 
 .login-button:hover, .signup-button:hover {
@@ -56,11 +57,12 @@
 
 .demo-button {
     border-radius: 5px;
-    padding: 10px;
+    padding: 12px;
     background: #42B72A;
     color: #fff;   
     width: 150px;
     margin: 15px;
+    font-size: 20px;
 }  
 
 

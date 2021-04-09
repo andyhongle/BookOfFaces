@@ -12,8 +12,8 @@
     align-items: center;
     justify-content: center;
     border: none;
-    height: 425px;
-    width: 230px;
+    height: 565px;
+    width: 390px;
     background: #FFFFFF;
     box-shadow: 3px 3px 8px 2px #cecccc;
     border-radius: 5px;
@@ -31,11 +31,11 @@
 .signup-input {
     border-radius: 5px;
     border: 1px solid #dddfe2;
-    height: 20px;
+    height: 28px;
     width: 200px;
     padding: 3px;
     margin: 5px;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 100px;
 }
 
@@ -45,8 +45,9 @@
     padding: 10px;
     background: #1877F2;
     color: #fff;
-    width: 150px;
+    width: 200px;
     margin: 15px;  
+    font-size: 25px;
 }
 
 .signup-submit:hover {
@@ -66,13 +67,14 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: 17px;
     width: 200px;
     background-color: #fff;
+    margin: 6px;
 }
 
 #radio-signup {
-    width: 8px;
+    width: 12px;
 }
 
 input[type="radio"] {
@@ -85,6 +87,7 @@ input[type="date"] {
   border: 1px solid #dddfe2;
   font: 400 13.3333px Arial;
   cursor: pointer;
+  font-size: 18px;
 
 }
 
@@ -94,19 +97,19 @@ input::-webkit-calendar-picker-indicator {
 
 .signup-form a {
     background: white;
-    font-size: 9px;
+    font-size: 15px;
     font-weight: 700;
      color: #1877F2;
 }
 
 .signup-form .instead {
     background: white;
-    font-size: 9px;
+    font-size: 17px;
     font-weight: 700;
 }
 
 .signup-form-box .signup-error {
     color: red;
-    font-size: 10px;
+    font-size: 16px;
     background: white;
 }
