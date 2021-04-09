@@ -1,0 +1,112 @@
+.signup-page {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin: 10% 10%;
+}
+
+.signup-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    height: 425px;
+    width: 230px;
+    background: #FFFFFF;
+    box-shadow: 3px 3px 8px 2px #cecccc;
+    border-radius: 5px;
+}   
+
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+}
+
+.signup-input {
+    border-radius: 5px;
+    border: 1px solid #dddfe2;
+    height: 20px;
+    width: 200px;
+    padding: 3px;
+    margin: 5px;
+    font-size: 14px;
+    font-weight: 100px;
+}
+
+.signup-submit {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    background: #1877F2;
+    color: #fff;
+    width: 150px;
+    margin: 15px;  
+}
+
+.signup-submit:hover {
+    color: black;
+}
+
+.signup-form .signup-parameter {
+    font-size: 11px;
+    font-weight: 300;
+}
+#genders {
+    background-color: #fff;
+}
+
+#genders .signup-parameter {
+    flex: display;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    width: 200px;
+    background-color: #fff;
+}
+
+#radio-signup {
+    width: 8px;
+}
+
+input[type="radio"] {
+  margin-top: 4px;
+  vertical-align: middle;
+}
+
+input[type="date"] {
+  border-radius: 5px;
+  border: 1px solid #dddfe2;
+  font: 400 13.3333px Arial;
+  cursor: pointer;
+
+}
+
+input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+  }
+
+.signup-form a {
+    background: white;
+    font-size: 9px;
+    font-weight: 700;
+     color: #1877F2;
+}
+
+.signup-form .instead {
+    background: white;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.signup-form-box .signup-error {
+    color: red;
+    font-size: 10px;
+    background: white;
+}

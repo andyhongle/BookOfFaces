@@ -4,9 +4,13 @@ class SignUpForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = { username: '', password: '', first_name: '',
-                    last_name: '', email: '', gender: ''}
+                    last_name: '', email: '', gender: '', birthday: ''}
 
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.clearErrors();
     }
 
     handleSubmit(e) {
@@ -25,7 +29,7 @@ class SignUpForm extends React.Component {
         return (
             <ul>
                 {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>
+                    <li className='signup-error' key={`error-${i}`}>
                         {error}
                     </li>
                 ))}
@@ -35,64 +39,90 @@ class SignUpForm extends React.Component {
 
     render() {
         return (
-            <div className="signup-form-container">
-                <form onSubmit={this.handleSubmit} className="signup-form-box">
-                    <br />
-                    {this.renderErrors()}
-                    <div className="signup-form">
-                        <label>First name
-                        <input type="text"
-                                value={this.state.first_name}
-                                onChange={this.update('first_name')}
-                                className="signup-input"
-                            />
-                        </label>
-                        <label>Last name
-                        <input type="text"
-                                value={this.state.last_name}
-                                onChange={this.update('last_name')}
-                                className="signup-input"
-                            />
-                        </label>
-                        <br/>
+            <div className='signup-page'>
 
-                        <label>Email
-                        <input type="text"
-                                value={this.state.email}
-                                onChange={this.update('email')}
-                                className="signup-input"
-                            />
-                        </label>
+                <div className='greeting-left'>
+                    <h1 className='greeting-logo'><a href="/">BookOfFaces</a></h1>
+                    <h2 className='greeting-bio'>Connect with friends and the world around you on BookOfFaces.</h2>
+                </div>
 
-                        <label>Username:
-                        <input type="text"
-                                value={this.state.username}
-                                onChange={this.update('username')}
-                                className="signup-input"
-                            />
-                        </label>
-                        <br />
-                        <label>Password:
-                             <input type="password"
-                                value={this.state.password}
-                                onChange={this.update('password')}
-                                className="signup-input"
-                            />
-                        </label>
-
-                        <label>Gender:
-                             <input type="text"
-                                value={this.state.gender}
-                                onChange={this.update('gender')}
-                                className="signup-input"
-                            />
-                        </label>
-
+                <div className="signup-form-container">
+                    <form onSubmit={this.handleSubmit} className="signup-form-box">
+                
+                        {this.renderErrors()}
+                        <div className="signup-form">
+                            <input type="text"
+                                    value={this.state.first_name}
+                                    onChange={this.update('first_name')}
+                                    className="signup-input"
+                                    placeholder='First Name'
+                                />
                         
-                        <br />
-                        <input className="signup-submit" type="submit" value='Sign Up' />
-                    </div>
-                </form>
+                            <input type="text"
+                                    value={this.state.last_name}
+                                    onChange={this.update('last_name')}
+                                    className="signup-input"
+                                    placeholder='Last Name'
+                                />
+                        
+                            <input type="text"
+                                    value={this.state.email}
+                                    onChange={this.update('email')}
+                                    className="signup-input"
+                                    placeholder='Email'
+                                />
+                        
+                            <input type="text"
+                                    value={this.state.username}
+                                    onChange={this.update('username')}
+                                    className="signup-input"
+                                    placeholder='Username'
+                                />
+                    
+                                <input type="password"
+                                    value={this.state.password}
+                                    onChange={this.update('password')}
+                                    className="signup-input"
+                                    placeholder='Password'
+                                />
+
+                            <div id='genders'>
+                                <label className='signup-parameter'>Male
+                                <input id='radio-signup' type="radio"
+                                        value="Male"
+                                        onChange={this.update('gender')}
+                                        className="signup-input"
+                                        name='gender'
+
+                                    />
+                                </label>
+
+                                <label className='signup-parameter'>Female
+                                <input id='radio-signup' type="radio"
+                                        value="Female"
+                                        onChange={this.update('gender')}
+                                        className="signup-input"
+                                        name='gender'
+                                    />
+                                </label>
+
+                                <label className='signup-parameter'>Other
+                                <input id='radio-signup' type="radio"
+                                        value="Other"
+                                        onChange={this.update('gender')}
+                                        className="signup-input"
+                                        name='gender'
+                                    />
+                                </label>
+                            </div>
+
+                            <input type="date" id="birthday" name="birthday" onChange={this.update('birthday')}></input>
+
+                            <button className='signup-submit'>Sign Up</button>
+                            <div className='instead'> Already have an account? </div> <a href="#/login">Login</a>
+                        </div>
+                    </form>
+                </div>
             </div>
         );
     }

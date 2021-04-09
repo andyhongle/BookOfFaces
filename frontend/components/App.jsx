@@ -5,16 +5,18 @@ import LoginFormContainer from './session_form/login_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import NewsFeedContainer from './news_feed/news_feed_container';
+import Modal from './session_form/modal';
 
 
 const App = () => (
-    <div>
-        <h1>Book of Faces</h1>
-        <GreetingContainer />
+    <div className='app'>
+
+        <ProtectedRoute exact path="/" component={NewsFeedContainer} />
         <Switch>
+            <AuthRoute exact path="/" component={GreetingContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-            <ProtectedRoute path="/" component={NewsFeedContainer} />
+            <Redirect to='/' />
         </Switch>
     </div>
 );

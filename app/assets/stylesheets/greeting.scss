@@ -1,0 +1,71 @@
+.greeting-page {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin: 10% 10%;
+}
+
+.greeting-left .greeting-logo {
+    font-size: 35px;
+    color: #3973fa;
+}
+
+.greeting-left .greeting-bio {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.greeting-page .greeting-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    height: 200px;
+    width: 230px;
+    background: #FFFFFF;
+    box-shadow: 3px 3px 8px 2px #cecccc;
+    border-radius: 5px;
+}   
+
+.login-button, .signup-button {
+    border-radius: 5px;
+    padding: 10px;
+    background: #1877F2;
+    color: #fff;
+    width: 200px;
+    margin: 15px;  
+    transition-duration: 0.4s;
+}   
+
+.login-button a, .signup-button a {
+    background: #1877F2;
+    display: block;
+}
+
+.login-button:hover, .signup-button:hover {
+    color: black; 
+
+}
+
+.demo-button:hover {
+    color: black; 
+}
+
+
+.demo-button {
+    border-radius: 5px;
+    padding: 10px;
+    background: #42B72A;
+    color: #fff;   
+    width: 150px;
+    margin: 15px;
+}  
+
+
+
+
+
+
+

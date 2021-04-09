@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_201542) do
     t.string "last_name", null: false
     t.string "email", null: false
     t.string "gender", null: false
-    t.string "birthday"
+    t.string "birthday", null: false
     t.string "bio"
     t.string "education"
     t.string "hometown"

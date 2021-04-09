@@ -9,7 +9,7 @@ class NewsFeed extends React.Component {
     render() {
         return (
             <div>
-                <h2>Hi, {this.props.currentUser.id}</h2>
+                <h2>Hi, newsfeed {this.props.currentUser.id}</h2>
                 <button onClick={this.props.logout}>Log Out</button>
             </div>
         )
