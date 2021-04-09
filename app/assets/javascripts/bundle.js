@@ -2592,7 +2592,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
 /* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
-/* harmony import */ var _news_feed_news_feed_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./news_feed/news_feed_container */ "./frontend/components/news_feed/news_feed_container.jsx");
+/* harmony import */ var _news_feed_news_feed_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./news_feed/news_feed_container */ "./frontend/components/news_feed/news_feed_container.js");
 /* harmony import */ var _session_form_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/modal */ "./frontend/components/session_form/modal.jsx");
 
 
@@ -2834,10 +2834,10 @@ var NewsFeed = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./frontend/components/news_feed/news_feed_container.jsx":
-/*!***************************************************************!*\
-  !*** ./frontend/components/news_feed/news_feed_container.jsx ***!
-  \***************************************************************/
+/***/ "./frontend/components/news_feed/news_feed_container.js":
+/*!**************************************************************!*\
+  !*** ./frontend/components/news_feed/news_feed_container.js ***!
+  \**************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
