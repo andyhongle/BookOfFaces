@@ -1,0 +1,105 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    z-index: 5;
+    box-shadow: 0 2px 4px -3px grey;
+    background-color: white;
+    height: 65px;
+    background: white;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-left a {
+    background: white;
+}
+
+.fb-logo {
+    height: 40px;
+    width: 40px;
+    padding-left: 30px;
+    background: white;
+}
+
+.search-bar-form {
+    padding-left: 20px;
+    background: white;
+}
+
+.search-bar {
+    height: 42px;
+    border-radius: 40px;
+    border-style: none;
+    width: 215px;
+    background: #f9f2f5;    
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    background: white;
+    justify-content: center;
+}
+
+
+.nav-profile-button {
+    display: flex;
+    background: white;
+    justify-content: space-between;
+    border-radius: 15px;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.nav-profile-button:hover {
+    background-color: #d2d5dd;
+}
+
+.nav-bar-picture {
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logout-container {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-logout-arrow {
+    border-radius: 100%;
+    height: 40px;
+    width: 40px;
+    padding: 2px;
+    margin: 5px;
+}
+
+.nav-logout-arrow-content {
+    position: absolute;
+    display: none;
+}
+
+.nav-logout-container:hover .nav-logout-arrow-content {
+    display: block;
+    cursor: pointer;
+    
+}
+
+.logout-button:hover {
+  background-color: #ddd;
+}
+
+
+

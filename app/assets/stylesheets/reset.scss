@@ -20,7 +20,7 @@ time, mark, audio, video {
   vertical-align: baseline;
   list-style: none;
   text-decoration: none;
-  background: #f9f2f5;
+  background: inherit;
   
 }
 
@@ -31,6 +31,9 @@ body {
 button {
   cursor: pointer;
   border: none
+}
+html {
+   background: #f9f2f5;
 }
 
 textarea:focus, input:focus{

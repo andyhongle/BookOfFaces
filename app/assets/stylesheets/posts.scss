@@ -1,0 +1,206 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.news-feed-container .create-post-container {
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 9px;
+    display: flex;
+    box-shadow: 3px 3px 8px 2px #cecccc;
+    margin-bottom: 25px;
+    width: 750px;
+    height: 130px;
+    align-items: center;
+}
+
+.create-post-form { 
+    display: flex;
+    flex-wrap: wrap;
+}
+.add-photo-image {
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+}
+
+.add-photo-image:hover {
+   opacity: 0.5;
+   cursor: pointer;
+}
+
+.create-post-photo {
+    display: none;
+}
+
+.create-post-text {
+    background-color: #f9f2f5;
+    border: none;
+    border-radius: 9px;
+    width: 600px;
+    height: 40px;
+    margin-left: 65px;
+    font-size: 25px;
+    margin-top: 6px;
+}
+
+.create-post-button {
+    height: 30px;
+    font-size: 22px;
+    width: 650px;
+    margin-left: 65px;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: white;
+    background: #3973fa;
+}
+
+.post-item {
+    width: 730px;
+    background-color: white;
+    border-radius: 9px;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 8px 2px #cecccc;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.post-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    
+}
+
+.post-body {
+    font-size: 18.75px;
+    color: #050505;
+}
+
+.post-item-header {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-top: 8px;
+}
+
+.post-owner-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}
+
+.post-owner-image:hover {
+    opacity: 0.5;
+}
+
+.post-item-name-date-image {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.post-item-name-date {
+    display: flex;
+    flex-direction: column;
+    margin-left: 6px;
+}
+
+.post-owner {
+    color: black;
+    font-weight: 600;
+   
+}
+
+.post-owner:hover {
+    text-decoration: underline;
+}
+
+.post-date {
+    font-weight: 400;
+    font-size: 12px;
+    color: #65676b;
+}
+
+.edit-delete-button {
+    height: 36px;
+    width: 36px;
+    background: white;
+    font-size: 20px;
+}
+
+.edit-delete-button:hover {
+    opacity: 0.3;
+}
+
+.edit-delete-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.edit-delete-dropdown-content {
+    position: absolute;
+    display: none;
+    
+}
+
+.edit-delete-dropdown-content div:hover {
+    background-color: #ddd;
+}
+
+.like-comment-buttons {
+    display: flex;
+    height: 35px;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #bec3c9;
+    border-bottom: 1px solid #bec3c9;
+    margin: 10px;
+}
+
+.like-button, .comment-button {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    background: white;
+    justify-content: center;
+}
+
+.like-button:hover, .comment-button:hover {
+    opacity: 0.5;
+}
+
+.like-icon {
+  max-width: 15%;
+  max-height: 15%;
+  background: white;
+}
+
+.comment-icon {
+    max-width: 10%;
+    max-height: 10%;
+}
+
+.like-text {
+    background:white;
+    margin-top: 1px;
+    color: #65676B;
+    font-size: 18.75px;
+    font-weight: 500;
+}
+
+.comment-text {
+    background:white;
+    margin-left: 4px;
+    color: #65676B;
+    font-size: 18.75px;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
