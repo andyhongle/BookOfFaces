@@ -8,11 +8,9 @@ class PostIndex extends React.Component {
         
     }
 
-  
-
     componentDidMount() {
         this.props.fetchPosts();
-        this.props.fetchAllUsers(); // this IS BROKEN FIX!!!!!!!!!!!!!!!!!!
+        this.props.fetchAllUsers(); // this IS BROKEN FIX!!!!!!
     }
 
     render () {
@@ -24,16 +22,19 @@ class PostIndex extends React.Component {
                         <li className='post-item' key={post.id}>
                             <div className='post-item-header'>
                                 <div className='post-item-name-date-image'>
-                                    <a href={`#/users/${post.author_id}`}><img className='post-owner-image' src={defaultphotoURL}/></a>
+                                    <a href={`#/users/${post.author_id}`}>
+                                        <img className='post-owner-image' src={defaultphotoURL} /> {/*FIX IMAGE HERE*/}
+                                    </a> 
                                     <div className='post-item-name-date'>
-                                        <div className='post-owner'><a href={`#/users/${post.author_id}`}>Firstname Lastname</a></div>
+                                        <div className='post-owner'>
+                                            <a href={`#/users/${post.author_id}`}>Firstname Lastname</a> 
+                                        </div> 
                                         <div className='post-date'>{createdTime}</div>
                                     </div>
                                    
                                 </div>
                                 <div className='edit-delete-dropdown'>
                                     <button className='edit-delete-button'>...</button>
-                                   
                                     <div className='edit-delete-dropdown-content'>
                                         <div className='delete-post-button' onClick={() => this.props.deletePost(post.id)}>Delete Post</div>
                                     </div>
@@ -42,8 +43,14 @@ class PostIndex extends React.Component {
                             <div className='post-body'>{post.body}</div>
                             <img className='post-image' src={post.photo}/>
                             <div className='like-comment-buttons'>
-                                <button className='like-button'><img className='like-icon' src={likeIconURL}/><div className='like-text'>Like</div></button>
-                                <button className='comment-button'><img className='comment-icon' src={commentIconURL} /><div className='comment-text'>Comment</div></button>
+                                <button className='like-button'>
+                                    <img className='like-icon' src={likeIconURL}/>
+                                    <div className='like-text'>Like</div>
+                                </button>
+                                <button className='comment-button'>
+                                    <img className='comment-icon' src={commentIconURL} />
+                                    <div className='comment-text'>Comment</div>
+                                </button>
                             </div>
                         </li>
                     );

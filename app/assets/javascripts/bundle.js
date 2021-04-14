@@ -500,6 +500,8 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       }, "BookOfFaces"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
         className: "greeting-bio"
       }, "Connect with friends and the world around you on BookOfFaces.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "greeting-right"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "greeting-buttons"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "login-button"
@@ -512,7 +514,17 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       }, "Sign Up")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: this.demoLogin,
         className: "demo-button"
-      }, "Demo User")));
+      }, "Demo User")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "about-me-buttons"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "https://github.com/andyhongle/BookOfFaces"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: window.githubIconURL
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "#"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: window.linkedinIconURL
+      })), " ")));
     }
   }]);
 
@@ -620,13 +632,13 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         href: "/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "fb-logo",
-        src: window.fblogoURL
+        src: window.faviconIconURL
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         className: "search-bar-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         className: "search-bar",
         type: "text",
-        placeholder: "   Search BookOfFaces"
+        placeholder: "Search BookOfFaces"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "nav-right"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -640,6 +652,22 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
       }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "nav-first-name"
       }, this.props.currentUser.first_name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "messages-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "nav-messages-button"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: window.messagesIconURL
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "drop-down-messages-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Messages"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "No new messages"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "notifications-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "nav-notifications-button"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: window.notificationsIconURL
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "drop-down-notifications-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Notifications"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "No new notifications"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "nav-logout-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "nav-logout-arrow"
@@ -651,7 +679,7 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "logout-button",
         onClick: this.props.logout
-      }, "Logout")))));
+      }, "Log out")))));
     }
   }]);
 
@@ -754,7 +782,53 @@ var NewsFeed = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "news-feed-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_posts_posts_form_container__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_posts_posts_index_container__WEBPACK_IMPORTED_MODULE_2__.default, null));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "top-row-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "shortcuts-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "shortcut-title-image"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "linkedin-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "linkedin-image",
+        src: window.linkedinIconURL
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        className: "shortcut-text",
+        href: "#"
+      }, "LinkedIn")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "github-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "github-image",
+        src: window.githubIconURL
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        className: "shortcut-text",
+        href: "https://github.com/andyhongle/BookOfFaces"
+      }, "Github")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_posts_posts_form_container__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "events-birthday-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "all-birthday-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "birthday-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "birthday-image",
+        src: window.birthdayURL
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "birthday-title"
+      }, "Birthdays")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "birthday-text"
+      }, "No birthdays today")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "all-event-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "events-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "event-image",
+        src: window.eventURL
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "event-title"
+      }, "Events")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "event-text"
+      }, "No upcoming events")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_posts_posts_index_container__WEBPACK_IMPORTED_MODULE_2__.default, null));
     }
   }]);
 
@@ -909,7 +983,12 @@ var PostForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         className: "create-post-form",
         onSubmit: this.handleSubmit
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "create-post-top-row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "create-post-profile-pic",
+        src: window.defaultphotoURL
+      }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         className: "create-post-text",
         type: "text",
         value: this.state.body,
@@ -927,7 +1006,7 @@ var PostForm = /*#__PURE__*/function (_React$Component) {
         type: "file",
         onChange: this.handleFile,
         title: " "
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "create-post-button"
       }, "Post")));
     }
@@ -1028,7 +1107,7 @@ var PostIndex = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchPosts();
-      this.props.fetchAllUsers(); // this IS BROKEN FIX!!!!!!!!!!!!!!!!!!
+      this.props.fetchAllUsers(); // this IS BROKEN FIX!!!!!!
     }
   }, {
     key: "render",
@@ -1049,7 +1128,7 @@ var PostIndex = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           className: "post-owner-image",
           src: defaultphotoURL
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        }), " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "post-item-name-date"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "post-owner"
@@ -2157,7 +2236,11 @@ var usersReducer = function usersReducer() {
       return Object.assign({}, state, _defineProperty({}, action.currentUser.user.id, action.currentUser.user));
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ALL_USERS:
-      return action.users;
+      var newState = Object.assign({}, state);
+      Object.values(action.users).forEach(function (user) {
+        newState[user.id] = user;
+      });
+      return newState;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_USER:
       return Object.assign({}, state, _defineProperty({}, action.user.user.id, action.user.user));

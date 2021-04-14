@@ -21,11 +21,18 @@ class Greeting extends React.Component {
                     <h1 className='greeting-logo'>BookOfFaces</h1>
                     <h2 className='greeting-bio'>Connect with friends and the world around you on BookOfFaces.</h2>
                 </div>
-                <div className='greeting-buttons'>
-                    <button className='login-button'><a href="#/login">Login</a></button>
-                    <button className='signup-button'><a href="#/signup">Sign Up</a></button>
-                    <button onClick={this.demoLogin} className='demo-button'>Demo User</button>
+                <div className='greeting-right'>
+                    <div className='greeting-buttons'>
+                        <button className='login-button'><a href="#/login">Login</a></button>
+                        <button className='signup-button'><a href="#/signup">Sign Up</a></button>
+                        <button onClick={this.demoLogin} className='demo-button'>Demo User</button>
+                    </div>
+                    <div className='about-me-buttons'>
+                      <a href="https://github.com/andyhongle/BookOfFaces"><img src={window.githubIconURL}/></a>
+                      <a href="#"><img src={window.linkedinIconURL} /></a> {/*ADD LINKEDIN URL HERE*/}
+                    </div>
                 </div>
+              
             </nav>
         )
     }

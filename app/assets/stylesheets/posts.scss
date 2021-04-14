@@ -12,16 +12,37 @@
     width: 750px;
     height: 130px;
     align-items: center;
+    margin-left: 85px;
+    
 }
 
+.create-post-profile-pic {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    border-radius: 100%;
+}
 .create-post-form { 
     display: flex;
     flex-wrap: wrap;
 }
+
+.create-post-top-row {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
 .add-photo-image {
     width: 50px;
     height: 50px;
     margin-left: 15px;
+}
+
+.profile-pic-form {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
 }
 
 .add-photo-image:hover {
@@ -39,9 +60,9 @@
     border-radius: 9px;
     width: 600px;
     height: 40px;
-    margin-left: 65px;
+    margin-left: 20px;
     font-size: 25px;
-    margin-top: 6px;
+  
 }
 
 .create-post-button {
@@ -140,13 +161,32 @@
 }
 
 .edit-delete-dropdown-content {
-    position: absolute;
     display: none;
-    
+    position: absolute;
+    background: white;
+    border-radius: 10px;
+    right: 0%;
+    border: none;
+    width: 300px;
+    height: 50px;
+    box-shadow: 3px 3px 3px 2px;
+}
+
+.edit-delete-dropdown-content .delete-post-button {
+    display: block;
+    color: black;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .edit-delete-dropdown-content div:hover {
     background-color: #ddd;
+}
+
+.edit-delete-dropdown:hover .edit-delete-dropdown-content {
+    display: block;
 }
 
 .like-comment-buttons {
@@ -197,9 +237,6 @@
     font-size: 18.75px;
     font-weight: 500;
 }
-
-
-
 
 
 

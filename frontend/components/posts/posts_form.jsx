@@ -42,29 +42,35 @@ class PostForm extends React.Component {
 
     render() {
         return (
-            <div className='create-post-container'>
-                <form className='create-post-form' onSubmit={this.handleSubmit}>
-                    <input className='create-post-text' type="text"
-                        value={this.state.body}
-                        onChange={this.handleInput}
-                        placeholder={` What's on your mind, ${this.props.currentUser.first_name}`}
-                    />
-                    <label className='add-photo' htmlFor="file-input">
-                        <img className='add-photo-image' src={window.addphotoURL} />
-                    </label>
-                    <input id='file-input' className='create-post-photo' type="file"
-                        onChange={this.handleFile}
-                        title=" "
-                        
-                    />
-                    <button className='create-post-button'>Post</button>
-                </form>
-            </div>
+                <div className='create-post-container'>
+                   
+                    <form className='create-post-form' onSubmit={this.handleSubmit}>
+                        <div className='create-post-top-row'>
+                            <img className='create-post-profile-pic' src={window.defaultphotoURL} /> {/*CHANGE IMAGE LATER*/}
+                            <input className='create-post-text' type="text"
+                                value={this.state.body}
+                                onChange={this.handleInput}
+                                placeholder={` What's on your mind, ${this.props.currentUser.first_name}`}
+                            />
+                            <label className='add-photo' htmlFor="file-input">
+                                <img className='add-photo-image' src={window.addphotoURL} />
+                            </label>
+                            <input id='file-input' className='create-post-photo' type="file"
+                                onChange={this.handleFile}
+                                title=" "
+                            />
+                        </div>
+
+                        <button className='create-post-button'>Post</button>
+                    </form>
+
+                 
+                </div>
+               
+         
+           
         )
     }
-
-
-
 }
 
 export default PostForm;
