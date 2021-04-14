@@ -4,9 +4,28 @@
     <title>BookOfFaces</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= favicon_link_tag asset_path('favicon.png') %>
+
+    <script type="text/javascript">
+      window.fblogoURL = "<%= image_url('facebook-logo-2019.png') %>";
+      window.dropdownarrowURL = "<%= image_url('drop-down-arrow.png') %>";
+      window.addphotoURL = "<%= image_url('add-photo-icon.png') %>";
+      window.defaultphotoURL = "<%= image_url('default-profile-pic') %>";
+      window.likeIconURL = "<%= image_url('facebook-like-icon.png') %>";
+      window.commentIconURL = "<%= image_url('facebook-comment-icon.png') %>";
+      window.linkedinIconURL = "<%= image_url('linkedin-icon.png') %>";
+      window.githubIconURL = "<%= image_url('github-icon.png') %>";
+      window.faviconIconURL = "<%= image_url('favicon.png') %>";
+      window.messagesIconURL = "<%= image_url('messages-icon.png') %>";
+      window.notificationsIconURL = "<%= image_url('notifications-icon.png') %>";
+      window.birthdayURL = "<%= image_url('birthday-icon.png') %>";
+      window.eventURL = "<%= image_url('events-icon.png') %>";
+      window.shortcutURL = "<%= image_url('shortcut.png') %>";
+      
+    </script>
   </head>
 
   <body>

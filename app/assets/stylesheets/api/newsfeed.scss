@@ -1,0 +1,96 @@
+.news-feed-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f9f2f5;
+}
+
+.top-row-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.shortcuts-container {
+    display: flex
+   
+}
+
+.events-birthday-container {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.birthday-container, .events-container {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.birthday-image, .event-image {
+    height: 30px;
+    width: 30px;
+    margin-right: 6px;
+}
+
+.birthday-title, .event-title {
+   font-weight: 500;
+   color: #828282;
+   font-size: 21px;
+}
+
+.all-birthday-container, .all-event-container {
+    padding-right: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 20px;
+    border-top: 1px solid #cfd3da;
+    border-bottom: 1px solid #cfd3da;
+}
+
+.birthday-text, .event-text {
+    margin-top: 5px;
+}
+
+.shortcut-title-image {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 10px;
+    justify-content: center;
+}
+
+.linkedin-image, .github-image {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.linkedin-container, .github-container {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    
+}
+
+.linkedin-container:hover, .github-container:hover {
+    opacity: 0.3;
+}
+
+
+.linkedin-container {
+    margin-left: 24px;
+}
+
+.shortcut-text {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+
+

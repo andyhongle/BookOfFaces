@@ -1,13 +1,16 @@
 import * as SessionAPIUtil from '../util/session_api_util';
+import * as UserAPIUtil from '../util/user_api_util'
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS'
+export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
+export const RECEIVE_USER = 'RECEIVE_USER';
 
 
 // regular action creators
-export const receiveCurrentUser = (currentUser) => {
+export const receiveCurrentUser = (currentUser) => {    
     return {type: RECEIVE_CURRENT_USER, currentUser};
 };
 
@@ -26,6 +29,16 @@ export const clearErrors = () => {
     })
 }
 
+export const receiveUser = (user) => ({
+    type: RECEIVE_USER,
+    user
+})
+
+export const receiveAllUsers = (users) => ({
+    type: RECEIVE_ALL_USERS,
+    users
+})
+
 // thunk action creators
 
 export const login = (user) => (dispatch) => (
@@ -33,7 +46,7 @@ export const login = (user) => (dispatch) => (
     .then((currentUser) => dispatch(receiveCurrentUser(currentUser)),
     (err) => dispatch(receiveErrors(err.responseJSON)))
 )
-window.login = login
+
 
 export const logout = () => (dispatch) => (
     SessionAPIUtil.logout()
@@ -46,7 +59,22 @@ export const signup = (user) => (dispatch) => (
     (err) => dispatch(receiveErrors(err.responseJSON)))
    
 )
-window.signup = signup
+
+export const fetchUser = (userId) => (dispatch) => (
+    UserAPIUtil.fetchUser(userId)
+        .then((user) => dispatch(receiveUser(user)))
+)
+
+export const fetchAllUsers = () => (dispatch) => (
+    UserAPIUtil.fetchAllUsers()
+        .then((users) => dispatch(receiveAllUsers(users)))
+)
+
+export const updateUser = (user) => (dispatch) => (
+    UserAPIUtil.updateUser(user)
+        .then((user) => dispatch(receiveUser(user)))
+)
+
 
 
 
