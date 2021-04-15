@@ -19,6 +19,7 @@ const postsReducer = (state = {}, action) => {
             return newState
         case REMOVE_POST:
             delete newState[action.postId]
+            return newState;
         case CLEAR_POSTS:
             return {};
         default: 

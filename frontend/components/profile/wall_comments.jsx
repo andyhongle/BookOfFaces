@@ -1,6 +1,6 @@
 import React from 'react';
 
-class CommentIndex extends React.Component {
+class WallComments extends React.Component {
     constructor(props) {
         super(props)
 
@@ -35,7 +35,7 @@ class CommentIndex extends React.Component {
                                         <div className='comment-delete' onClick={() => this.props.deleteComment(comment)}>Delete Comment</div>
                                     </div>
                                 </div>
-                               
+
                             </li>
                             <div className='created-comment'>{createdTime}</div>
                         </div>
@@ -46,4 +46,4 @@ class CommentIndex extends React.Component {
     }
 }
 
-export default CommentIndex;
+export default WallComments;

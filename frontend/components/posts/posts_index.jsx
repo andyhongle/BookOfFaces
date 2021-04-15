@@ -6,13 +6,13 @@ import CommentFormContainer from '../comments/comments_form_container';
 class PostIndex extends React.Component {
     constructor(props) {
         super(props);
-       
-        
     }
 
     componentDidMount() {
-        this.props.fetchAllUsers();
-        this.props.fetchPosts();
+        this.props.fetchAllUsers().then(() => this.props.fetchPosts())
+
+        // this.props.fetchAllUsers()
+        // this.props.fetchPosts()
         
     }
 
@@ -48,16 +48,12 @@ class PostIndex extends React.Component {
                             <div className='post-body'>{post.body}</div>
                             <img className='post-image' src={post.photo}/>
                             <div className='like-comment-buttons'>
-                                <button className='like-button'>
-                                    <img className='like-icon' src={likeIconURL}/>
-                                    <div className='like-text'>Like</div>
-                                </button>
                                 <button className='comment-button'>
                                     <img className='comment-icon' src={commentIconURL} />
-                                    <div className='comment-text'>Comment</div>
+                                    <div className='comment-text'>Comments</div>
                                 </button>
                             </div>
-                            <CommentIndexContainer post={post} postOwner={postOwner}/>
+                            <CommentIndexContainer post={post} postOwner={postOwner} users={this.props.users}/>
                             <CommentFormContainer post={post} users={this.props.users}/>
                         </li>
                     );

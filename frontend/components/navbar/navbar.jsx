@@ -20,7 +20,7 @@ class NavBar extends React.Component {
                 <div className='nav-right'>
                     <button className='nav-profile-button'>
                         <a className='nav-link' href={`#/users/${this.props.currentUser.id}`}>
-                            <img className='nav-bar-picture' src={defaultphotoURL} /> {/*CHANGE IMAGE LATER*/}
+                            <img className='nav-bar-picture' src={this.props.currentUser.profile_photo} />
                             <div className='nav-first-name'>{this.props.currentUser.first_name}</div> 
                         </a>
                     </button>

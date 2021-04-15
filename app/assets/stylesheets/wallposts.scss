@@ -1,0 +1,32 @@
+.wallpost-item {
+    background: white;
+    padding: 7px;
+    box-shadow: 3px 3px 8px 2px #cecccc;
+    width: 560px;
+    margin-top: 16px;
+   
+    display: flex;
+    border-radius: 15px;
+    flex-direction: column;   
+}
+
+.wallpost-body {
+    margin-left: 4px;
+    font-size: 18.75px;
+    margin-bottom: 4px;
+}
+
+.comment-button {
+    cursor: default;
+}
+
+.create-wallcomment-form input {
+    border-radius: 12px;
+    height: 19px;
+    padding: 8px 12px;
+    border: none;
+    background-color: #f0f2f5;
+    width: 500px;
+    font-size: 16px;
+}
+

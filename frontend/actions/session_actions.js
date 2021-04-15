@@ -70,8 +70,13 @@ export const fetchAllUsers = () => (dispatch) => (
         .then((users) => dispatch(receiveAllUsers(users)))
 )
 
-export const updateUser = (user) => (dispatch) => (
-    UserAPIUtil.updateUser(user)
+export const updateUserPhotos = (user) => (dispatch) => (
+    UserAPIUtil.updateUserPhotos(user)
+        .then((user) => dispatch(receiveUser(user)))
+)
+
+export const updateUserInfo = (user) => (dispatch) => (
+    UserAPIUtil.updateUserInfo(user)
         .then((user) => dispatch(receiveUser(user)))
 )
 

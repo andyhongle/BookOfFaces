@@ -1,0 +1,310 @@
+.profile-photo-input, .cover-photo-input {
+    display: none;
+}
+
+.add-profile-photo-image {
+    width: 28px;
+    height: 28px;
+    border-radius: 18px;
+    padding: 3px;
+    cursor: pointer;
+    margin-top: -5000px;
+    margin-left: 150px;
+    z-index: 99999;
+}
+
+.add-profile-photo-image:hover, .add-cover-photo-button:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.profile-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    display: block;
+    margin-top: -160px;
+}
+
+.cover-photo {
+    width: 950px;
+    height: 460px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: none;
+    background: #f9f2f5;
+
+}
+
+.cover-photo-text {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.add-cover-photo-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px;
+    background: #e4e6eb;
+    border-radius: 14px;
+    margin-left: 770px;
+    margin-top: -105px;
+}
+
+.add-cover-photo-image {
+    width: 24px;
+    height: 24px;   
+    margin-right: 8px;
+    
+}
+
+.profile-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    flex-direction: column;
+}
+
+.profile-picture-button-container {
+    display: flex;
+}
+
+.picture-button-container {
+    display: flex;
+    
+}
+
+.profile-name {
+    margin-top: 10px;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.profile-bio {
+    color: #65676b;
+    font-size: 21.25;
+    margin-top: 6px;
+}
+
+.profile-nav-bar {
+    display: flex;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    justify-content: flex-end;
+    width: 980px;
+}
+
+.edit-profile-button, .add-friend-button {
+    font-size: 18.75px;
+    padding: 10px;
+    background: #e4e6eb;
+    border-radius: 8px;
+}
+
+.edit-profile-button {
+    display: flex;
+    align-items: center;
+}
+
+.edit-profile-button:hover {
+    background-color: #ddd;
+}
+
+.edit-profile-link {
+    display: flex;
+    align-items: center;
+}
+
+.edit-profile-button img {
+    margin-right: 9px;
+    margin-left: 1px;
+}
+
+.edit-bio-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.edit-bio-container {
+    margin-left: 5%;
+    width: 600px;
+    margin-top: 3%;
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    height: 425px;
+    box-shadow: 3px 3px 8px 2px #cecccc;
+}
+
+.about-input {
+    border-radius: 5px;
+    border: 1px solid #dddfe2;
+    height: 28px;
+    width: 580px;
+    padding: 3px;
+    margin: 5px;
+    font-size: 20px;
+    font-weight: 100px;
+    margin-bottom: 12px;
+}
+
+.edit-submit {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    background: #1877F2;
+    color: #fff;
+    width: 200px;
+    margin: 15px;  
+    font-size: 25px;
+}
+
+.go-back-button {
+    border-radius: 5px;
+    padding: 12px;
+    background: #42B72A;
+    color: #fff;   
+    width: 200px;
+    margin: 15px;
+    font-size: 20px;
+}
+
+.go-back-button:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.edit-submit:hover {
+    color:black;
+    cursor:pointer;
+}
+
+.profile-main {
+    display: flex;
+    justify-content: center;
+}
+
+.work-container, .education-container, .hometown-container, .pronunciation-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.work-container img, .education-container img, .hometown-container img, 
+.pronunciation-container img {
+    margin-left: 8px;
+   
+
+}
+
+.pretext, .intro-info {
+    font-size: 18.75;
+    
+}
+
+.pretext {
+     margin-left: 9px;
+     margin-right: 7px;
+}
+
+.intro-info {
+    color: #050505;
+    font-weight: bold;
+    margin-bottom: 2px;
+    
+}
+
+.pronunciation-container img {
+    width: 24px;
+    height: 24px;
+}
+
+.intro-text {
+    font-size: 26px;
+    color: black;
+    font-weight: 600;
+    margin: 8px;
+    margin-bottom: 10px;
+}
+
+.intro-container {
+    margin-top: 16px;
+    background: white;
+    padding: 7px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 8px 2px #cecccc;
+    width: 380px;
+    margin-right: 16px;
+    height: 205px;
+}
+
+.create-wallpost-container {
+
+}
+
+.create-wallpost-profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.right-wall {
+    display: flex;
+}
+
+.create-wallpost-container {
+    background: white;
+    padding: 7px;
+    box-shadow: 3px 3px 8px 2px #cecccc;
+    width: 560px;
+    margin-top: 16px;
+    height: 60px;
+    display: flex;
+    border-radius: 15px;
+    align-items: center;
+
+}
+
+.create-wallpost-text {
+    background-color: #f9f2f5;
+    border: none;
+    border-radius: 9px;
+    width: 420px;
+    height: 40px;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.create-wallpost-top-row {
+    display: flex;
+    align-items: center;
+}
+
+.right-wall {
+    display: flex;
+    flex-direction: column;
+}
+
+.posts-blocker {
+    background: white;
+    padding: 7px;
+    box-shadow: 3px 3px 8px 2px #cecccc;
+    width: 560px;
+    margin-top: 16px;
+    height: 50px;
+    display: flex;
+    border-radius: 15px;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.posts-blocker div {
+    margin-left: 9px;
+}

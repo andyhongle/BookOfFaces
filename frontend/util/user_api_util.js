@@ -12,10 +12,21 @@ export const fetchAllUsers = () => (
     })
 )
 
-export const updateUser = user => (
+export const updateUserPhotos = user => {
+    
+    return $.ajax({
+        method: 'PATCH',
+        url: `api/users/${user.id}`,
+        data: user,
+        contentType: false,
+        processData: false 
+    })
+}
+
+export const updateUserInfo = user => (
     $.ajax({
         method: 'PATCH',
-        url: 'api/users/${user.id}',
+        url: `api/users/${user.id}`,
         data: { user }
     })
 )

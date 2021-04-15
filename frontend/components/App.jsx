@@ -8,6 +8,7 @@ import NewsFeedContainer from './news_feed/news_feed_container';
 import Modal from './session_form/modal';
 import ProfileContainer from './profile/profile_container';
 import NavBarContainer from './navbar/navbar_container';
+import BioFormContainer from './profile/edit_bio_container';
 
 
 const App = () => (
@@ -17,6 +18,7 @@ const App = () => (
         <ProtectedRoute exact path="/" component={NewsFeedContainer} />
         
         <Switch>
+            <ProtectedRoute exact path="/users/:userId/edit" component={BioFormContainer} />
             <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />

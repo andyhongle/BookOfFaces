@@ -12,6 +12,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :bio
       t.string :education
       t.string :hometown
+      t.string :work
+      t.string :pronunciation
       t.string :relationship
       t.string :websites
       t.string :social_links

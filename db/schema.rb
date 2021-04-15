@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 2021_04_14_002927) do
     t.string "bio"
     t.string "education"
     t.string "hometown"
+    t.string "work"
+    t.string "pronunciation"
     t.string "relationship"
     t.string "websites"
     t.string "social_links"

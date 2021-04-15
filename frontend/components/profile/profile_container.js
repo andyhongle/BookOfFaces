@@ -1,13 +1,14 @@
 import Profile from './profile';
 import { connect } from 'react-redux';
-import { updateUser } from '../../actions/session_actions';
+import { fetchAllUsers } from '../../actions/session_actions';
 
-const mSTP = (state) => ({
-    currentUser: state.entities.users[state.session.id]
+const mSTP = (state, ownProps) => ({
+    currentUser: state.entities.users[state.session.id],
+    profileUser: state.entities.users[ownProps.match.params.userId]
 });
 
 const mDTP = (dispatch) => ({
-   updateUser: (user) => dispatch(updateUser(user))
+   fetchAllUsers: () => dispatch(fetchAllUsers())
 });
 
 export default connect(mSTP, mDTP)(Profile)

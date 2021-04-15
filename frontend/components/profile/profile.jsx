@@ -1,97 +1,79 @@
 import React from 'react';
+import ProfilePhotoFormContainer from './profile_photos_form_container';
+import CoverPhotoFormContainer from './cover_photos_form_container';
+import WallPostFormContainer from './wall_post_form_container';
+import WallPostContainer from './wall_posts_container';
 
 class Profile extends React.Component {
     constructor(props) {
         super(props);
-        this.showEducation = this.showEducation.bind(this);
-        this.handleProfilePhoto = this.handleProfilePhoto.bind(this);
-        this.handleProfilePhotoSubmit = this.handleProfilePhotoSubmit.bind(this);
-
-        this.state = {bio: this.props.currentUser.bio,
-                    education: this.props.currentUser.education,
-                    hometown: this.props.currentUser.hometown,
-                    profilePhotoURL: this.props.currentUser.profilePhotoURL,
-                    coverPhotoURL: this.props.currentUser.currentPhotoURL,
-                    first_name: this.props.currentUser.first_name}
     }
 
-    showEducation () {
-        if (this.props.currentUser.education !== '') {
-            return (<div>Works at:</div>);
-        }
-    }   
-
-    // handleCoverPhoto(e) {
-    //     this.setState({coverPhotoURL: e.currentTarget.files[0]})
-    // }
-
-    handleProfilePhoto(e) {
-        const file = e.currentTarget.files[0]
-        const fileReader = new FileReader();
-        fileReader.onloadend = () => {
-            this.setState({ profilePhotoURL: fileReader.result})
-        }
-        if (file) {
-            fileReader.readAsDataURL(file);
-        }
-    }
-
-    handleProfilePhotoSubmit(e) {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append('user[profile_photo]', this.state.profilePhotoURL)
-        this.props.updateUser(formData)
+    componentDidMount() {
+        this.props.fetchAllUsers();
     }
 
     render() {
-    console.log(this.state)
+        if (!this.props.profileUser) {
+            return null;
+        }
        return (
-          
-           <div className='profile-container'>
-
-               <div className='profile-picture'>
-                    <form onSubmit={this.handleProfilePhotoSubmit}>
-                        <input type="file" onChange={this.handleProfilePhoto}/>
-                        <button>Submit</button>
-                    </form>
-                    <img src={this.state.profilePhotoURL}/>
-               </div>
-
-               <div className='bio-container'>
-                   <h2 className='profile-name'>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</h2>
-                   <h3 className='profile-name'>{this.props.currentUser.bio} BIO TEST</h3>
-                   <div className='edit-profile'>
-                       <button className='edit-profile-button'><a href={`#/users/${this.props.currentUser.id}/edit-profile`}>Edit Profile</a></button>
+           <div className='profile'>
+               <div className='profile-header'>
+                   <img className='cover-photo' src={this.props.profileUser.cover_photo} />
+                   <div className='profile-picture-button-container'>
+                       <img className='profile-photo' src={this.props.profileUser.profile_photo} />
+                   </div>
+                   <ProfilePhotoFormContainer />
+                   <CoverPhotoFormContainer />
+                   <div className='profile-name'>{this.props.profileUser.first_name} {this.props.profileUser.last_name}</div>
+                   <div className='profile-bio'>{this.props.profileUser.bio}</div>
+                   <div className='profile-nav-bar'> 
+                        {/* <button className='add-friend-button'>Add Friend</button>  */}
+                        <button className='edit-profile-button'>
+                           <a className='edit-profile-link' href={`#/users/${this.props.profileUser.id}/edit`}>
+                                <img src={editURL}/>
+                                <div>Edit Profile</div>
+                           </a>
+                        </button>
                    </div>
                </div>
-               
-               <div className='intro-container'>
-                    <div className='education'>
-                        {this.props.showEducation}
+
+                <div className='profile-main'>
+                    <div className='intro-container'>
+                        <div className='intro-text'>Intro</div>
+                       <div className='work-container'>
+                           <img src={window.workURL}/>
+                           <div className='pretext'>Works at</div>
+                           <div className='intro-info'>{this.props.profileUser.work}</div>
+                       </div>
+                       <div className='education-container'>
+                           <img src={window.educationURL}/>
+                           <div className='pretext'>Studied at</div>
+                           <div className='intro-info'>{this.props.profileUser.education}</div>
+                        </div>
+                       <div className='hometown-container'>
+                           <img src={window.hometownURL}/>
+                           <div className='pretext'>From</div>
+                           <div className='intro-info'>{this.props.profileUser.hometown}</div>
+                       </div>
+                       <div className='pronunciation-container'>
+                           <img src={window.pronunciationURL} />
+                           <div className='pretext'>Pronounces name</div>
+                           <div className='intro-info'>{this.props.profileUser.pronunciation}</div>
+                       </div>
+                       
                     </div>
-                   <div className='hometown'>
-
-                   </div>
-                   <div className='relationship'>
-
-                   </div>
-
-               </div>
-
-               <div className='friends-container'>
-
-               </div>
-
-               <div >
-
-               </div>
-
-
-
-               
-
-
+                    <div className='right-wall'>
+                       <WallPostFormContainer />
+                       <div className='posts-blocker'><div>Posts</div></div>
+                       <WallPostContainer/>
+    
+                    </div>
+           
+                </div>
            </div>
+          
        )
     }
 };
