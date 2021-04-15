@@ -91,7 +91,6 @@
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    
 }
 
 .post-body {
@@ -149,10 +148,11 @@
     width: 36px;
     background: white;
     font-size: 20px;
+    border-radius: 16px;    
 }
 
 .edit-delete-button:hover {
-    opacity: 0.3;
+    background: #f9f2f5;
 }
 
 .edit-delete-dropdown {
@@ -169,7 +169,7 @@
     border: none;
     width: 300px;
     height: 50px;
-    box-shadow: 3px 3px 3px 2px;
+    box-shadow: 2px 2px 6px 2px lightgray;
 }
 
 .edit-delete-dropdown-content .delete-post-button {

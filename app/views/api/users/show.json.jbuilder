@@ -1,10 +1,17 @@
 json.user do
-  json.extract! @user, 
-                :id, :first_name, :last_name, :birthday, :bio, :education,
-                :email, :gender, :hometown, :relationship, :websites,
-                :social_links
-  json.profilePhotoURL url_for(@user.profile_photo) if @user.profile_photo.attached?
-  json.coverPhotoURL url_for(@user.cover_photo) if @user.cover_photo.attached?
+  json.partial! 'api/users/user', user: @user
+  if @user.cover_photo.attached? 
+    json.cover_photo url_for(@user.cover_photo)
+  else
+    json.cover_photo nil
+  end
+
+  if @user.profile_photo.attached?
+    json.profile_photo url_for(@user.profile_photo)
+  else
+    json.profile_photo image_url('default-profile-pic.png')
+  end
+
 end
 
 

@@ -1,10 +1,10 @@
 class Api::CommentsController < ApplicationController
 
     def index
-        @comments = Comments.all
-        if params[:postId]
-            @comments = @comments.where(post_id: params[:postId])
-        end
+        @comments = Comment.all
+        # if params[:postId]
+        #     @comments = @comments.where(post_id: params[:postId])
+        # end
         render :index
     end
 
@@ -32,7 +32,7 @@ class Api::CommentsController < ApplicationController
             @comment.destroy
             render json: :show
         else
-            render json: @comment.errors.full_messages, status: 422
+            render json: ['Unable to delete comment'], status: 422
         end
     end
 

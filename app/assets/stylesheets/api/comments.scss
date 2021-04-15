@@ -1,3 +1,129 @@
 // Place all the styles related to the api/comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-item {
+   display: flex;
+   
+   align-items: center;
+
+}
+
+.comment-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.name-body-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 12px;
+   
+    padding-top: 8px;
+    background: #f9f2f5;
+    border-radius: 12px;
+    margin-left: 6px;
+    
+}
+
+.comment-owner-name {
+    font-size: 16.25px;
+    color: #050505;
+    font-weight: 600;
+    padding-right: 12px;
+}
+
+.comment-owner-body {
+    color: #050505;
+    font-weight:normal;
+    margin-right: 12px;
+    padding-bottom: 8px;
+}
+
+.created-comment {
+    margin-left: 48px;
+    font-weight: 400;
+    font-size: 10px;
+    color: #65676b;
+    margin-bottom: 9px;
+}
+
+.edit-delete-container {
+    position: relative;
+    display: inline-block;
+}
+
+
+.edit-delete-comment-button {
+    font-size: 18px;
+    line-height: 14px;
+    background: white;
+    border-radius: 50%;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 4px;
+    padding-bottom: 10px;
+    margin-left: 4px;
+}
+
+.edit-delete-comment-content {
+    display:none;
+    position: absolute;
+    background: white;
+    border-radius: 10px;
+    left: 0%;
+    border: none;
+    width: 300px;
+    height: 40px;
+    box-shadow: 2px 2px 6px 2px lightgray;
+    
+}
+
+
+.edit-delete-comment-content .comment-delete {
+    display: block;
+    color: black;
+    font-size: 16px;
+    margin-left: 8px;
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 12;
+    cursor: pointer;
+   
+}
+
+.edit-delete-comment-content .comment-delete:hover {
+    background: #ddd;
+}
+
+.edit-delete-container:hover .edit-delete-comment-content {
+    display: block;
+}
+
+.edit-delete-comment-button:hover {
+    background: #f9f2f5;
+}
+
+
+.create-comment-container {
+    display: flex;
+    align-items: center;
+
+}
+
+.create-comment-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.create-comment-form input {
+    border-radius: 12px;
+    height: 19px;
+    padding: 8px 12px;
+    border: none;
+    background-color: #f0f2f5;
+    width: 680px;
+    font-size: 16px;
+}

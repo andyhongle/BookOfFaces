@@ -1,4 +1,6 @@
 import React from 'react';
+import CommentIndexContainer from '../comments/comments_index_container';
+import CommentFormContainer from '../comments/comments_form_container';
 
 
 class PostIndex extends React.Component {
@@ -9,25 +11,28 @@ class PostIndex extends React.Component {
     }
 
     componentDidMount() {
+        this.props.fetchAllUsers();
         this.props.fetchPosts();
-        this.props.fetchAllUsers(); // this IS BROKEN FIX!!!!!!
+        
     }
 
     render () {
         return (
             <ul>
                 {this.props.posts.reverse().map(post => {
-                    let createdTime = new Date(post.created_at).toDateString()
+            
+                    let createdTime = new Date(post.created_at).toDateString();
+                    let postOwner = this.props.users[post.author_id]
                     return (
                         <li className='post-item' key={post.id}>
                             <div className='post-item-header'>
                                 <div className='post-item-name-date-image'>
                                     <a href={`#/users/${post.author_id}`}>
-                                        <img className='post-owner-image' src={defaultphotoURL} /> {/*FIX IMAGE HERE*/}
+                                        <img className='post-owner-image' src={postOwner.profile_photo} /> 
                                     </a> 
                                     <div className='post-item-name-date'>
                                         <div className='post-owner'>
-                                            <a href={`#/users/${post.author_id}`}>Firstname Lastname</a> 
+                                            <a href={`#/users/${post.author_id}`}>{postOwner.first_name} {postOwner.last_name}</a> 
                                         </div> 
                                         <div className='post-date'>{createdTime}</div>
                                     </div>
@@ -52,6 +57,8 @@ class PostIndex extends React.Component {
                                     <div className='comment-text'>Comment</div>
                                 </button>
                             </div>
+                            <CommentIndexContainer post={post} postOwner={postOwner}/>
+                            <CommentFormContainer post={post} users={this.props.users}/>
                         </li>
                     );
                 })}
