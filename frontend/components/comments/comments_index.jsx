@@ -26,7 +26,7 @@ class CommentIndex extends React.Component {
                                         {commentOwner.first_name} {commentOwner.last_name}
                                     </div>
                                     <div className='comment-owner-body'>
-                                        {comment.body}
+                                        <div className='comment-body'>{comment.body}</div>
                                     </div>
                                 </div>
                                 <div className='edit-delete-container'>

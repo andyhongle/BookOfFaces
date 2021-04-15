@@ -1,6 +1,7 @@
 import React from 'react';
 import PostFormContainer from '../posts/posts_form_container'
 import PostIndexContainer from '../posts/posts_index_container'
+import UsersIndexContainer from './users_index_container';
 
 class NewsFeed extends React.Component {
     constructor(props) {
@@ -11,18 +12,7 @@ class NewsFeed extends React.Component {
         return (
             <div className='news-feed-container'>
                 <div className='top-row-container'>
-                    <div className='shortcuts-container'>
-                        <div className='shortcut-title-image'>
-                            <div className='linkedin-container'>
-                                <img className='linkedin-image' src={window.linkedinIconURL} />
-                                <a className='shortcut-text' href="#">LinkedIn</a>
-                            </div>
-                            <div className='github-container'>
-                                <img className='github-image' src={window.githubIconURL} />
-                                <a className='shortcut-text' href="https://github.com/andyhongle/BookOfFaces">Github</a>
-                            </div> 
-                        </div>
-                    </div>
+                    <UsersIndexContainer />
                     <PostFormContainer />
                     <div className='events-birthday-container'>
                         <div className='all-birthday-container'>

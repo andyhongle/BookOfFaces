@@ -13,9 +13,22 @@ class NavBar extends React.Component {
                 <div className='nav-left'>
                     <a href="/"><img className='fb-logo' src={window.faviconIconURL}/></a>
                     <form className='search-bar-form'>
-                        <input className='search-bar' type="text" placeholder='Search BookOfFaces'/>
+                        <input className='search-bar' type="text" placeholder='Search BookOfFaces coming soon!'/>
                     </form>
-
+                </div>
+                <div className='nav-middle'>
+                    <div className='shortcuts-container'>
+                        <div className='shortcut-title-image'>
+                            <div className='linkedin-container'>
+                                <img className='linkedin-image' src={window.linkedinIconURL} />
+                                <a className='shortcut-text' href="#">LinkedIn</a>
+                            </div>
+                            <div className='github-container'>
+                                <img className='github-image' src={window.githubIconURL} />
+                                <a className='shortcut-text' href="https://github.com/andyhongle/BookOfFaces">Github</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className='nav-right'>
                     <button className='nav-profile-button'>

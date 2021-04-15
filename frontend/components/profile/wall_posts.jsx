@@ -13,7 +13,6 @@ class WallPosts extends React.Component {
     }
 
     render() {  
-        
         return (
             <ul>
                 {this.props.wallPosts.reverse().map(wallPost => {
