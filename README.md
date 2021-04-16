@@ -25,4 +25,26 @@ BookOfFaces is a [Facebook](https://www.facebook.com/) clone, that allows users 
 ### Profiles 
 
 
+### Posts/Comments
+
+
 ### News Feed
+
+## Code Snippets
+
+## Future Features
+
+### General
+* styling for various screen sizes
+* optimize amount of calls to backend
+
+### Comments 
+* Users can reply to a comment
+
+### Likes
+* Users can like a post or comment
+
+### Friends
+* Users receive notifications for a friend request
+
+
