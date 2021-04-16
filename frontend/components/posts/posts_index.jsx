@@ -18,7 +18,7 @@ class PostIndex extends React.Component {
 
     render () {
         return (
-            <ul>
+            <ul className='ul-posts'>
                 {this.props.posts.reverse().map(post => {
 
                     let editPostButton = null;

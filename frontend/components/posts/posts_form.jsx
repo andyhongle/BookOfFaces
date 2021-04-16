@@ -1,4 +1,5 @@
 import React from 'react';
+import PostIndexContainer from '../posts/posts_index_container'
 
 
 class PostForm extends React.Component {
@@ -64,6 +65,7 @@ class PostForm extends React.Component {
 
                         <button className='create-post-button'>Post</button>
                     </form>
+                     <PostIndexContainer />
 
                  
                 </div>

@@ -33,7 +33,7 @@ class NewsFeed extends React.Component {
                         </div>
                     </div>
                 </div>
-                <PostIndexContainer />
+               
             </div>
         )
     }

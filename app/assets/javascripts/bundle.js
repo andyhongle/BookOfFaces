@@ -1275,7 +1275,7 @@ var NewsFeed = /*#__PURE__*/function (_React$Component) {
         className: "event-title"
       }, "Events")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "event-text"
-      }, "No upcoming events")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_posts_posts_index_container__WEBPACK_IMPORTED_MODULE_2__.default, null));
+      }, "No upcoming events")))));
     }
   }]);
 
@@ -1449,6 +1449,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _posts_posts_index_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../posts/posts_index_container */ "./frontend/components/posts/posts_index_container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1470,6 +1471,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -1574,7 +1576,7 @@ var PostForm = /*#__PURE__*/function (_React$Component) {
         title: " "
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "create-post-button"
-      }, "Post")));
+      }, "Post")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_posts_posts_index_container__WEBPACK_IMPORTED_MODULE_1__.default, null));
     }
   }]);
 
@@ -1688,7 +1690,9 @@ var PostIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, this.props.posts.reverse().map(function (post) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+        className: "ul-posts"
+      }, this.props.posts.reverse().map(function (post) {
         var editPostButton = null;
 
         if (post.author_id === _this2.props.currentUser.id) {

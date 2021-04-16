@@ -12,7 +12,8 @@
     width: 750px;
     height: 130px;
     align-items: center;
-    margin-right: 100px;
+    margin-right: 70px;
+    flex-direction: column;
     
 }
 
@@ -25,6 +26,10 @@
 .create-post-form { 
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 55px;
+}
+.ul-posts {
+    background: #f9f2f5;
 }
 
 .create-post-top-row {
