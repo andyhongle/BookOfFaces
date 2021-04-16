@@ -26,8 +26,9 @@ class SignUpForm extends React.Component {
     }
 
     renderErrors() {
+        console.log(this.props.errors)
         return (
-            <ul>
+            <ul>  
                 {this.props.errors.map((error, i) => (
                     <li className='signup-error' key={`error-${i}`}>
                         {error}
