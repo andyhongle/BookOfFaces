@@ -16,3 +16,13 @@ BookOfFaces is a [Facebook](https://www.facebook.com/) clone, that allows users 
 * Redux
 * HTML
 * CSS
+
+## Features
+
+### User Authentication
+
+
+### Profiles 
+
+
+### News Feed
