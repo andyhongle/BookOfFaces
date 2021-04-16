@@ -1,24 +1,50 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# BookOfFaces
 
-Things you may want to cover:
+BookOfFaces is a [Facebook](https://www.facebook.com/) clone, that allows users to create a profile, add friends, and create text/image posts to interact with other users.
 
-* Ruby version
+[Live link to project](https://bookoffaces.herokuapp.com/#/)
 
-* System dependencies
+## Technologies Used:
 
-* Configuration
+* Ruby on Rails
+* PostGreSQL
+* JBuilder
+* jQuery
+* React
+* Redux
+* HTML
+* CSS
 
-* Database creation
+## Features
 
-* Database initialization
+### User Authentication
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### Profiles 
 
-* Deployment instructions
 
-* ...
+### Posts/Comments
+
+
+### News Feed
+
+## Code Snippets
+
+## Future Features
+
+### General
+* styling for various screen sizes
+* optimize amount of calls to backend
+
+### Comments 
+* Users can reply to a comment
+
+### Likes
+* Users can like a post or comment
+
+### Friends
+* Users receive notifications for a friend request
+
+
