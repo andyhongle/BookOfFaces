@@ -1,0 +1,1 @@
+json.extract! friendship, :adder_friend, :accepter_friend, :id, :created_at

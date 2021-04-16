@@ -25,6 +25,15 @@ class User < ApplicationRecord
     has_many :comments,
     foreign_key: :author_id,
     class_name: 'Comment'
+
+    has_many :friendships,
+    foreign_key: :adder_friend,
+    primary_key: :id,
+    class_name: 'Friendship'
+
+    has_many :friends,
+    through: :friendships,
+    source: :friend
     
 
 
