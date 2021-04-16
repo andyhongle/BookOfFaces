@@ -1,5 +1,5 @@
 import { RECEIVE_FRIENDSHIP, DELETE_FRIENDSHIP } from '../actions/friendship_actions';
-
+import { RECEIVE_CURRENT_USER, RECEIVE_USER } from '../actions/session_actions';
 export const friendshipReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state)
@@ -21,7 +21,8 @@ export const friendshipReducer = (state = {}, action) => {
                     newState[friendship.id] = friendship
                 })
             }
-            return newState;
-        
+        return newState;
+        default: 
+            return state;
     }
 }
