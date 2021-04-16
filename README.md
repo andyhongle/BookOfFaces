@@ -1,7 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# BookOfFaces
+
+BookOfFaces is a Facebook clone, that allows users to create a profile, add friends, and create text/image posts to interact with other users.
+
+Live link to project
+
 
 Things you may want to cover:
 
