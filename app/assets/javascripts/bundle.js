@@ -1676,19 +1676,22 @@ var PostIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(PostIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // this.props.fetchAllUsers().then(() => this.props.fetchPosts())
-      this.props.fetchAllUsers();
-      this.props.fetchPosts();
+      var _this = this;
+
+      this.props.fetchAllUsers().then(function () {
+        return _this.props.fetchPosts();
+      }); // this.props.fetchAllUsers()
+      // this.props.fetchPosts()
     }
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, this.props.posts.reverse().map(function (post) {
         var editPostButton = null;
 
-        if (post.author_id === _this.props.currentUser.id) {
+        if (post.author_id === _this2.props.currentUser.id) {
           editPostButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
             className: "edit-delete-dropdown"
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -1698,13 +1701,13 @@ var PostIndex = /*#__PURE__*/function (_React$Component) {
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
             className: "delete-post-button",
             onClick: function onClick() {
-              return _this.props.deletePost(post.id);
+              return _this2.props.deletePost(post.id);
             }
           }, "Delete Post")));
         }
 
         var createdTime = new Date(post.created_at).toDateString();
-        var postOwner = _this.props.users[post.author_id];
+        var postOwner = _this2.props.users[post.author_id];
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
           className: "post-item",
           key: post.id
@@ -1742,10 +1745,10 @@ var PostIndex = /*#__PURE__*/function (_React$Component) {
         }, "Comments"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_comments_comments_index_container__WEBPACK_IMPORTED_MODULE_1__.default, {
           post: post,
           postOwner: postOwner,
-          users: _this.props.users
+          users: _this2.props.users
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_comments_comments_form_container__WEBPACK_IMPORTED_MODULE_2__.default, {
           post: post,
-          users: _this.props.users
+          users: _this2.props.users
         }));
       }));
     }

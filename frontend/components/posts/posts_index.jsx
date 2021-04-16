@@ -9,10 +9,10 @@ class PostIndex extends React.Component {
     }
 
     componentDidMount() {
-        // this.props.fetchAllUsers().then(() => this.props.fetchPosts())
+        this.props.fetchAllUsers().then(() => this.props.fetchPosts())
 
-        this.props.fetchAllUsers()
-        this.props.fetchPosts()
+        // this.props.fetchAllUsers()
+        // this.props.fetchPosts()
         
     }
 
