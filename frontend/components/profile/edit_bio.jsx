@@ -16,10 +16,14 @@ class BioForm extends React.Component {
         this.update = this.update.bind(this);
     }
 
+    componentDidMount() {
+        this.props.fetchAllUsers();
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.updateUserInfo(user);
+        this.props.updateUserInfo(user).then(() => this.props.history.push(`/users/${this.props.profileUser.id}`));
     }
 
     update(field) {
@@ -32,7 +36,7 @@ class BioForm extends React.Component {
     
         return (
             <div className='edit-bio-container'>
-                <form onSubmit={this.handleSubmit} className='edit-bio-form'>
+                <form action={`#/users/${this.props.profileUser.id}`} onSubmit={this.handleSubmit} className='edit-bio-form'>
                     <input type="text"
                         value={this.state.bio}
                         onChange={this.update('bio')}

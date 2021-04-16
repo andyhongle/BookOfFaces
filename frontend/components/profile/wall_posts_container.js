@@ -14,7 +14,9 @@ const mSTP = (state, ownProps) => {
     })
     return ({
         wallPosts: wallPosts,
-        users: state.entities.users
+        users: state.entities.users,
+        currentUser: state.entities.users[state.session.id],
+        profileUser: state.entities.users[ownProps.match.params.userId]
     })
 }
 

@@ -9,10 +9,10 @@ class PostIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchAllUsers().then(() => this.props.fetchPosts())
+        // this.props.fetchAllUsers().then(() => this.props.fetchPosts())
 
-        // this.props.fetchAllUsers()
-        // this.props.fetchPosts()
+        this.props.fetchAllUsers()
+        this.props.fetchPosts()
         
     }
 
@@ -20,7 +20,17 @@ class PostIndex extends React.Component {
         return (
             <ul>
                 {this.props.posts.reverse().map(post => {
-            
+
+                    let editPostButton = null;
+                    if (post.author_id === this.props.currentUser.id) {
+                        editPostButton = <div className='edit-delete-dropdown'>
+                            <button className='edit-delete-button'>...</button>
+                            <div className='edit-delete-dropdown-content'>
+                                <div className='delete-post-button' onClick={() => this.props.deletePost(post.id)}>Delete Post</div>
+                            </div>
+                        </div>
+                    }
+                    
                     let createdTime = new Date(post.created_at).toDateString();
                     let postOwner = this.props.users[post.author_id]
                     return (
@@ -38,12 +48,8 @@ class PostIndex extends React.Component {
                                     </div>
                                    
                                 </div>
-                                <div className='edit-delete-dropdown'>
-                                    <button className='edit-delete-button'>...</button>
-                                    <div className='edit-delete-dropdown-content'>
-                                        <div className='delete-post-button' onClick={() => this.props.deletePost(post.id)}>Delete Post</div>
-                                    </div>
-                                </div>
+                                {editPostButton}
+                               
                             </div>
                             <div className='post-body'>{post.body}</div>
                             <img className='post-image' src={post.photo}/>

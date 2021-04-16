@@ -9,7 +9,7 @@
     padding: 3px;
     cursor: pointer;
     margin-top: -5000px;
-    margin-left: 150px;
+    margin-left: 135px;
     z-index: 99999;
 }
 
@@ -244,9 +244,6 @@
     height: 205px;
 }
 
-.create-wallpost-container {
-
-}
 
 .create-wallpost-profile-pic {
     width: 40px;
@@ -264,7 +261,7 @@
     box-shadow: 3px 3px 8px 2px #cecccc;
     width: 560px;
     margin-top: 16px;
-    height: 60px;
+    height: 120px;
     display: flex;
     border-radius: 15px;
     align-items: center;
@@ -277,7 +274,7 @@
     border-radius: 9px;
     width: 420px;
     height: 40px;
-    margin-left: 20px;
+    margin-left: 10px;
     font-size: 18px;
 }
 
@@ -307,4 +304,20 @@
 
 .posts-blocker div {
     margin-left: 9px;
+}
+
+.create-wallpost-button {
+    height: 30px;
+    font-size: 22px;
+    width: 450px;
+    margin-left: 45px;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: white;
+    background: #3973fa;
+}
+
+.cover-photo-form {
+    z-index: -9999;
+    background: transparent;
 }

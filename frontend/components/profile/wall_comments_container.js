@@ -12,6 +12,7 @@ const mSTP = (state, ownProps) => {
     })
     return ({
         comments: comments,
+        currentUser: state.entities.users[state.session.id]
     })
 }
 

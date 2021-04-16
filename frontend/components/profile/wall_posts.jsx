@@ -1,4 +1,5 @@
 import React from 'react';
+import { logoutCurrentUser } from '../../actions/session_actions';
 import WallCommentsContainer from './wall_comments_container';
 import WallCommentFormContainer from './wall_comments_form_container';
 
@@ -16,6 +17,22 @@ class WallPosts extends React.Component {
         return (
             <ul>
                 {this.props.wallPosts.reverse().map(wallPost => {
+                    let editPostButton = null;
+
+                    if (wallPost.author_id === this.props.currentUser.id ||
+                        this.props.currentUser.id === this.props.profileUser.id) {
+                        editPostButton = 
+                        <div className='edit-delete-dropdown'>
+                            <button className='edit-delete-button'>...</button>
+                            <div className='edit-delete-dropdown-content'>
+                                <div className='delete-post-button' 
+                                    onClick={() => this.props.deletePost(wallPost.id)}>Delete Post
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
                     let createdTime = new Date(wallPost.created_at).toDateString();
                     let postOwner = this.props.users[wallPost.author_id]
                     return (
@@ -33,12 +50,8 @@ class WallPosts extends React.Component {
                                     </div>
 
                                 </div>
-                                <div className='edit-delete-dropdown'>
-                                    <button className='edit-delete-button'>...</button>
-                                    <div className='edit-delete-dropdown-content'>
-                                        <div className='delete-post-button' onClick={() => this.props.deletePost(wallPost.id)}>Delete Post</div>
-                                    </div>
-                                </div>
+                                {editPostButton}
+                                
                             </div>
                             <div className='wallpost-body'>{wallPost.body}</div>
                             <img className='post-image' src={wallPost.photo} />

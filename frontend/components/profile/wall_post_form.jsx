@@ -45,22 +45,22 @@ class WallPostForm extends React.Component {
 
                 <form className='create-wallpost-form' onSubmit={this.handleSubmit}>
                     <div className='create-wallpost-top-row'>
-                        <img className='create-wallpost-profile-pic' src={window.defaultphotoURL} /> {/*CHANGE IMAGE LATER*/}
+                        <img className='create-wallpost-profile-pic' src={this.props.currentUser.profile_photo} />
                         <input className='create-wallpost-text' type="text"
                             value={this.state.body}
                             onChange={this.handleInput}
                             placeholder={` What's on your mind, ${this.props.currentUser.first_name}`}
                         />
-                        <label className='add-photo' htmlFor="file-input">
+                        <label className='add-photo' htmlFor="file-input3">
                             <img className='add-photo-image' src={window.addphotoURL} />
                         </label>    
-                        <input id='file-input' className='create-post-photo' type="file"
+                        <input id='file-input3' className='create-post-photo' type="file"
                             onChange={this.handleFile}
                             title=" "
                         />
                     </div>
 
-                    {/* <button className='create-wallpost-button'>Post</button> */}
+                    <button className='create-wallpost-button'>Post</button>
                 </form>
 
 

@@ -718,6 +718,23 @@ var CommentIndex = /*#__PURE__*/function (_React$Component) {
       var _this = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, this.props.comments.map(function (comment) {
+        var editCommentNewsFeed = null;
+
+        if (comment.author_id === _this.props.currentUser.id) {
+          editCommentNewsFeed = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "edit-delete-container"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+            className: "edit-delete-comment-button"
+          }, "..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "edit-delete-comment-content"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "comment-delete",
+            onClick: function onClick() {
+              return _this.props.deleteComment(comment);
+            }
+          }, "Delete Comment")));
+        }
+
         var createdTime = new Date(comment.created_at).toDateString();
         var commentOwner = _this.props.users[comment.author_id];
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -735,18 +752,7 @@ var CommentIndex = /*#__PURE__*/function (_React$Component) {
           className: "comment-owner-body"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "comment-body"
-        }, comment.body))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "edit-delete-container"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          className: "edit-delete-comment-button"
-        }, "..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "edit-delete-comment-content"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "comment-delete",
-          onClick: function onClick() {
-            return _this.props.deleteComment(comment);
-          }
-        }, "Delete Comment")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        }, comment.body))), editCommentNewsFeed), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "created-comment"
         }, createdTime));
       }));
@@ -789,7 +795,8 @@ var mSTP = function mSTP(state, ownProps) {
   });
   return {
     comments: comments,
-    commentsObj: state.entities.comments
+    commentsObj: state.entities.comments,
+    currentUser: state.entities.users[state.session.id]
   };
 };
 
@@ -1322,10 +1329,10 @@ var UsersIndex = /*#__PURE__*/function (_React$Component) {
         className: "user-index-title"
       }, "All Users"), this.props.users.map(function (user) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+          key: user.id,
           className: "user-show-page",
           href: "#/users/".concat(user.id)
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-          key: user.id,
           className: "user-item"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           className: "user-index-photo",
@@ -1496,8 +1503,8 @@ var PostForm = /*#__PURE__*/function (_React$Component) {
         className: "create-post-top-row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "create-post-profile-pic",
-        src: window.defaultphotoURL
-      }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        src: this.props.currentUser.profile_photo
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         className: "create-post-text",
         type: "text",
         value: this.state.body,
@@ -1619,21 +1626,35 @@ var PostIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(PostIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this = this;
-
-      this.props.fetchAllUsers().then(function () {
-        return _this.props.fetchPosts();
-      }); // this.props.fetchAllUsers()
-      // this.props.fetchPosts()
+      // this.props.fetchAllUsers().then(() => this.props.fetchPosts())
+      this.props.fetchAllUsers();
+      this.props.fetchPosts();
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, this.props.posts.reverse().map(function (post) {
+        var editPostButton = null;
+
+        if (post.author_id === _this.props.currentUser.id) {
+          editPostButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "edit-delete-dropdown"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+            className: "edit-delete-button"
+          }, "..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "edit-delete-dropdown-content"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "delete-post-button",
+            onClick: function onClick() {
+              return _this.props.deletePost(post.id);
+            }
+          }, "Delete Post")));
+        }
+
         var createdTime = new Date(post.created_at).toDateString();
-        var postOwner = _this2.props.users[post.author_id];
+        var postOwner = _this.props.users[post.author_id];
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
           className: "post-item",
           key: post.id
@@ -1654,18 +1675,7 @@ var PostIndex = /*#__PURE__*/function (_React$Component) {
           href: "#/users/".concat(post.author_id)
         }, postOwner.first_name, " ", postOwner.last_name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "post-date"
-        }, createdTime))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "edit-delete-dropdown"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          className: "edit-delete-button"
-        }, "..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "edit-delete-dropdown-content"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "delete-post-button",
-          onClick: function onClick() {
-            return _this2.props.deletePost(post.id);
-          }
-        }, "Delete Post")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        }, createdTime))), editPostButton), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "post-body"
         }, post.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           className: "post-image",
@@ -1682,10 +1692,10 @@ var PostIndex = /*#__PURE__*/function (_React$Component) {
         }, "Comments"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_comments_comments_index_container__WEBPACK_IMPORTED_MODULE_1__.default, {
           post: post,
           postOwner: postOwner,
-          users: _this2.props.users
+          users: _this.props.users
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_comments_comments_form_container__WEBPACK_IMPORTED_MODULE_2__.default, {
           post: post,
-          users: _this2.props.users
+          users: _this.props.users
         }));
       }));
     }
@@ -1713,15 +1723,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/post_actions */ "./frontend/actions/post_actions.js");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
 /* harmony import */ var _posts_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./posts_index */ "./frontend/components/posts/posts_index.jsx");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
 
 
 
 
 
-var mSTP = function mSTP(state) {
+
+var mSTP = function mSTP(state, ownProps) {
   return {
     posts: Object.values(state.entities.posts),
-    users: state.entities.users
+    users: state.entities.users,
+    currentUser: state.entities.users[state.session.id],
+    profileUser: state.entities.users[ownProps.match.params.userId]
   };
 };
 
@@ -1742,7 +1756,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_posts_index__WEBPACK_IMPORTED_MODULE_3__.default));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_4__.withRouter)((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_posts_index__WEBPACK_IMPORTED_MODULE_3__.default)));
 
 /***/ }),
 
@@ -1814,7 +1828,7 @@ var CoverPhotoForm = /*#__PURE__*/function (_React$Component) {
         _this2.setState({
           photoFile2: file2,
           photoUrl2: fileReader2.result
-        });
+        }, _this2.handleSubmit2);
       };
 
       if (file2) {
@@ -1824,7 +1838,6 @@ var CoverPhotoForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit2",
     value: function handleSubmit2(e) {
-      e.preventDefault();
       var formData2 = new FormData();
 
       if (this.state.photoFile2) {
@@ -1841,24 +1854,29 @@ var CoverPhotoForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
-        className: "cover-photo-form",
-        onSubmit: this.handleSubmit2
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-        className: "add-cover-photo-button",
-        htmlFor: "file-input2"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "add-cover-photo-image",
-        src: window.cameraURL
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "cover-photo-text"
-      }, "Cover Photo")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-        id: "file-input2",
-        className: "cover-photo-input",
-        type: "file",
-        onChange: this.handleFile2,
-        title: " "
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Submit cover photo"));
+      var editCoverPic = null;
+
+      if (this.props.currentUser.id === this.props.profileUser.id) {
+        editCoverPic = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+          className: "cover-photo-form"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+          className: "add-cover-photo-button",
+          htmlFor: "file-input2"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "add-cover-photo-image",
+          src: window.cameraURL
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "cover-photo-text"
+        }, "Cover Photo")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+          id: "file-input2",
+          className: "cover-photo-input",
+          type: "file",
+          onChange: this.handleFile2,
+          title: " "
+        }));
+      }
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, editCoverPic);
     }
   }]);
 
@@ -1883,13 +1901,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _cover_photos_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cover_photos_form */ "./frontend/components/profile/cover_photos_form.jsx");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
 
 
 
 
-var mSTP = function mSTP(state) {
+
+var mSTP = function mSTP(state, ownProps) {
   return {
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    profileUser: state.entities.users[ownProps.match.params.userId]
   };
 };
 
@@ -1901,7 +1922,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_cover_photos_form__WEBPACK_IMPORTED_MODULE_1__.default));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_3__.withRouter)((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_cover_photos_form__WEBPACK_IMPORTED_MODULE_1__.default)));
 
 /***/ }),
 
@@ -1967,19 +1988,28 @@ var BioForm = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(BioForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchAllUsers();
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this2 = this;
+
       e.preventDefault();
       var user = Object.assign({}, this.state);
-      this.props.updateUserInfo(user);
+      this.props.updateUserInfo(user).then(function () {
+        return _this2.props.history.push("/users/".concat(_this2.props.profileUser.id));
+      });
     }
   }, {
     key: "update",
     value: function update(field) {
-      var _this2 = this;
+      var _this3 = this;
 
       return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
@@ -1988,6 +2018,7 @@ var BioForm = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "edit-bio-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+        action: "#/users/".concat(this.props.profileUser.id),
         onSubmit: this.handleSubmit,
         className: "edit-bio-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
@@ -2060,6 +2091,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var mSTP = function mSTP(state, ownProps) {
   return {
     profileUser: state.entities.users[ownProps.match.params.userId]
@@ -2070,6 +2102,9 @@ var mDTP = function mDTP(dispatch) {
   return {
     updateUserInfo: function updateUserInfo(user) {
       return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__.updateUserInfo)(user));
+    },
+    fetchAllUsers: function fetchAllUsers() {
+      return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__.fetchAllUsers)());
     }
   };
 };
@@ -2145,6 +2180,19 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         return null;
       }
 
+      var editButton = null;
+
+      if (this.props.currentUser.id === this.props.profileUser.id) {
+        editButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+          className: "edit-profile-button"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+          className: "edit-profile-link",
+          href: "#/users/".concat(this.props.profileUser.id, "/edit")
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          src: editURL
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Edit Profile")));
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "profile"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -2163,14 +2211,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         className: "profile-bio"
       }, this.props.profileUser.bio), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "profile-nav-bar"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        className: "edit-profile-button"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        className: "edit-profile-link",
-        href: "#/users/".concat(this.props.profileUser.id, "/edit")
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: editURL
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Edit Profile"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, editButton)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "profile-main"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "intro-container"
@@ -2329,7 +2370,7 @@ var ProfilePhotoForm = /*#__PURE__*/function (_React$Component) {
         _this2.setState({
           photoFile: file,
           photoUrl: fileReader.result
-        });
+        }, _this2.handleSubmit);
       };
 
       if (file) {
@@ -2339,7 +2380,6 @@ var ProfilePhotoForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault();
       var formData = new FormData();
 
       if (this.state.photoFile) {
@@ -2355,22 +2395,27 @@ var ProfilePhotoForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
-        className: "profile-photo-form",
-        onSubmit: this.handleSubmit
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-        className: "add-profile-photo",
-        htmlFor: "file-input"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "add-profile-photo-image",
-        src: window.cameraURL
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-        id: "file-input",
-        className: "profile-photo-input",
-        type: "file",
-        onChange: this.handleFile,
-        title: " "
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Submit profile photo"));
+      var editProfPic = null;
+
+      if (this.props.currentUser.id === this.props.profileUser.id) {
+        editProfPic = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+          className: "profile-photo-form"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+          className: "add-profile-photo",
+          htmlFor: "file-input"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "add-profile-photo-image",
+          src: window.cameraURL
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+          id: "file-input",
+          className: "profile-photo-input",
+          type: "file",
+          onChange: this.handleFile,
+          title: " "
+        }));
+      }
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, editProfPic);
     }
   }]);
 
@@ -2395,13 +2440,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _profile_photos_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profile_photos_form */ "./frontend/components/profile/profile_photos_form.jsx");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
 
 
 
 
-var mSTP = function mSTP(state) {
+
+var mSTP = function mSTP(state, ownProps) {
   return {
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    profileUser: state.entities.users[ownProps.match.params.userId]
   };
 };
 
@@ -2413,7 +2461,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_profile_photos_form__WEBPACK_IMPORTED_MODULE_1__.default));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_3__.withRouter)((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_profile_photos_form__WEBPACK_IMPORTED_MODULE_1__.default)));
 
 /***/ }),
 
@@ -2475,6 +2523,23 @@ var WallComments = /*#__PURE__*/function (_React$Component) {
       var _this = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, this.props.comments.map(function (comment) {
+        var editWallComment = null;
+
+        if (comment.author_id === _this.props.currentUser.id) {
+          editWallComment = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "edit-delete-container"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+            className: "edit-delete-comment-button"
+          }, "..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "edit-delete-comment-content"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "comment-delete",
+            onClick: function onClick() {
+              return _this.props.deleteComment(comment);
+            }
+          }, "Delete Comment")));
+        }
+
         var createdTime = new Date(comment.created_at).toDateString();
         var commentOwner = _this.props.users[comment.author_id];
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -2490,18 +2555,7 @@ var WallComments = /*#__PURE__*/function (_React$Component) {
           className: "comment-owner-name"
         }, commentOwner.first_name, " ", commentOwner.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "comment-owner-body"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, comment.body))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "edit-delete-container"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          className: "edit-delete-comment-button"
-        }, "..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "edit-delete-comment-content"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "comment-delete",
-          onClick: function onClick() {
-            return _this.props.deleteComment(comment);
-          }
-        }, "Delete Comment")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, comment.body))), editWallComment), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "created-comment"
         }, createdTime));
       }));
@@ -2543,7 +2597,8 @@ var mSTP = function mSTP(state, ownProps) {
     }
   });
   return {
-    comments: comments
+    comments: comments,
+    currentUser: state.entities.users[state.session.id]
   };
 };
 
@@ -2828,8 +2883,8 @@ var WallPostForm = /*#__PURE__*/function (_React$Component) {
         className: "create-wallpost-top-row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "create-wallpost-profile-pic",
-        src: window.defaultphotoURL
-      }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        src: this.props.currentUser.profile_photo
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         className: "create-wallpost-text",
         type: "text",
         value: this.state.body,
@@ -2837,17 +2892,19 @@ var WallPostForm = /*#__PURE__*/function (_React$Component) {
         placeholder: " What's on your mind, ".concat(this.props.currentUser.first_name)
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         className: "add-photo",
-        htmlFor: "file-input"
+        htmlFor: "file-input3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "add-photo-image",
         src: window.addphotoURL
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-        id: "file-input",
+        id: "file-input3",
         className: "create-post-photo",
         type: "file",
         onChange: this.handleFile,
         title: " "
-      }))));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "create-wallpost-button"
+      }, "Post")));
     }
   }]);
 
@@ -2910,8 +2967,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _wall_comments_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./wall_comments_container */ "./frontend/components/profile/wall_comments_container.js");
-/* harmony import */ var _wall_comments_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./wall_comments_form_container */ "./frontend/components/profile/wall_comments_form_container.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _wall_comments_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./wall_comments_container */ "./frontend/components/profile/wall_comments_container.js");
+/* harmony import */ var _wall_comments_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./wall_comments_form_container */ "./frontend/components/profile/wall_comments_form_container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2933,6 +2991,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -2961,6 +3020,23 @@ var WallPosts = /*#__PURE__*/function (_React$Component) {
       var _this = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, this.props.wallPosts.reverse().map(function (wallPost) {
+        var editPostButton = null;
+
+        if (wallPost.author_id === _this.props.currentUser.id || _this.props.currentUser.id === _this.props.profileUser.id) {
+          editPostButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "edit-delete-dropdown"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+            className: "edit-delete-button"
+          }, "..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "edit-delete-dropdown-content"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "delete-post-button",
+            onClick: function onClick() {
+              return _this.props.deletePost(wallPost.id);
+            }
+          }, "Delete Post")));
+        }
+
         var createdTime = new Date(wallPost.created_at).toDateString();
         var postOwner = _this.props.users[wallPost.author_id];
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
@@ -2983,18 +3059,7 @@ var WallPosts = /*#__PURE__*/function (_React$Component) {
           href: "#/users/".concat(wallPost.author_id)
         }, postOwner.first_name, " ", postOwner.last_name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "post-date"
-        }, createdTime))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "edit-delete-dropdown"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          className: "edit-delete-button"
-        }, "..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "edit-delete-dropdown-content"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "delete-post-button",
-          onClick: function onClick() {
-            return _this.props.deletePost(wallPost.id);
-          }
-        }, "Delete Post")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        }, createdTime))), editPostButton), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "wallpost-body"
         }, wallPost.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           className: "post-image",
@@ -3008,10 +3073,10 @@ var WallPosts = /*#__PURE__*/function (_React$Component) {
           src: commentIconURL
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "comment-text"
-        }, "Comments"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_wall_comments_container__WEBPACK_IMPORTED_MODULE_1__.default, {
+        }, "Comments"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_wall_comments_container__WEBPACK_IMPORTED_MODULE_2__.default, {
           wallPost: wallPost,
           users: _this.props.users
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_wall_comments_form_container__WEBPACK_IMPORTED_MODULE_2__.default, {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_wall_comments_form_container__WEBPACK_IMPORTED_MODULE_3__.default, {
           wallPost: wallPost,
           users: _this.props.users
         }));
@@ -3058,7 +3123,9 @@ var mSTP = function mSTP(state, ownProps) {
   });
   return {
     wallPosts: wallPosts,
-    users: state.entities.users
+    users: state.entities.users,
+    currentUser: state.entities.users[state.session.id],
+    profileUser: state.entities.users[ownProps.match.params.userId]
   };
 };
 

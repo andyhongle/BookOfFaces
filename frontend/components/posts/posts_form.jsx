@@ -47,7 +47,7 @@ class PostForm extends React.Component {
                    
                     <form className='create-post-form' onSubmit={this.handleSubmit}>
                         <div className='create-post-top-row'>
-                            <img className='create-post-profile-pic' src={window.defaultphotoURL} /> {/*CHANGE IMAGE LATER*/}
+                            <img className='create-post-profile-pic' src={this.props.currentUser.profile_photo}/> 
                             <input className='create-post-text' type="text"
                                 value={this.state.body}
                                 onChange={this.handleInput}

@@ -15,6 +15,16 @@ class WallComments extends React.Component {
         return (
             <ul>
                 {this.props.comments.map(comment => {
+                    let editWallComment = null;
+                    if (comment.author_id === this.props.currentUser.id) {
+                        editWallComment = 
+                            <div className='edit-delete-container'>
+                                <button className='edit-delete-comment-button'>...</button>
+                                <div className='edit-delete-comment-content'>
+                                    <div className='comment-delete' onClick={() => this.props.deleteComment(comment)}>Delete Comment</div>
+                                </div>
+                            </div>
+                    }
                     let createdTime = new Date(comment.created_at).toDateString()
                     let commentOwner = this.props.users[comment.author_id]
                     return (
@@ -29,13 +39,7 @@ class WallComments extends React.Component {
                                         <div>{comment.body}</div>
                                     </div>
                                 </div>
-                                <div className='edit-delete-container'>
-                                    <button className='edit-delete-comment-button'>...</button>
-                                    <div className='edit-delete-comment-content'>
-                                        <div className='comment-delete' onClick={() => this.props.deleteComment(comment)}>Delete Comment</div>
-                                    </div>
-                                </div>
-
+                                {editWallComment}
                             </li>
                             <div className='created-comment'>{createdTime}</div>
                         </div>

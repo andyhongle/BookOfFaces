@@ -18,16 +18,18 @@ class ProfilePhotoForm extends React.Component {
         const fileReader = new FileReader();
 
         fileReader.onloadend = () => {
-            this.setState({ photoFile: file, photoUrl: fileReader.result });
+            this.setState({ photoFile: file, photoUrl: fileReader.result }, this.handleSubmit);
         };
         if (file) {
             fileReader.readAsDataURL(file);
         }
+
+       
         
     }
 
     handleSubmit(e) {
-        e.preventDefault();
+       
         const formData = new FormData();
         if (this.state.photoFile) {
             formData.append('user[profile_photo]', this.state.photoFile);
@@ -38,17 +40,21 @@ class ProfilePhotoForm extends React.Component {
 
 
     render() {
+        let editProfPic = null;
+        if (this.props.currentUser.id === this.props.profileUser.id) {
+            editProfPic = 
+                <form className='profile-photo-form'>
+                    <label className='add-profile-photo' htmlFor="file-input">
+                        <img className='add-profile-photo-image' src={window.cameraURL} />
+                    </label>
+                    <input id='file-input' className='profile-photo-input' type="file"
+                        onChange={this.handleFile}
+                        title=" "
+                    />
+                </form>
+        }
         return (
-            <form className='profile-photo-form' onSubmit={this.handleSubmit}>
-                <label className='add-profile-photo' htmlFor="file-input">
-                    <img className='add-profile-photo-image' src={window.cameraURL} />
-                </label>
-                <input id='file-input' className='profile-photo-input' type="file"
-                    onChange={this.handleFile}
-                    title=" "
-                />
-                <button>Submit profile photo</button>
-            </form>
+            <div>{editProfPic}</div>
         )
     }
 }

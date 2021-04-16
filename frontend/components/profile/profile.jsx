@@ -17,6 +17,18 @@ class Profile extends React.Component {
         if (!this.props.profileUser) {
             return null;
         }
+        let editButton = null;
+        if (this.props.currentUser.id === this.props.profileUser.id) {
+            editButton =
+            <button className='edit-profile-button'>
+                <a className='edit-profile-link' href={`#/users/${this.props.profileUser.id}/edit`}>
+                    <img src={editURL} />
+                    <div>Edit Profile</div>
+                </a>
+                </button>
+        
+        }
+
        return (
            <div className='profile'>
                <div className='profile-header'>
@@ -30,12 +42,7 @@ class Profile extends React.Component {
                    <div className='profile-bio'>{this.props.profileUser.bio}</div>
                    <div className='profile-nav-bar'> 
                         {/* <button className='add-friend-button'>Add Friend</button>  */}
-                        <button className='edit-profile-button'>
-                           <a className='edit-profile-link' href={`#/users/${this.props.profileUser.id}/edit`}>
-                                <img src={editURL}/>
-                                <div>Edit Profile</div>
-                           </a>
-                        </button>
+                        {editButton}
                    </div>
                </div>
 

@@ -18,7 +18,7 @@ class CoverPhotoForm extends React.Component {
         const fileReader2 = new FileReader();
         
         fileReader2.onloadend = () => {
-            this.setState({ photoFile2: file2, photoUrl2: fileReader2.result });
+            this.setState({ photoFile2: file2, photoUrl2: fileReader2.result }, this.handleSubmit2);
         };
         if (file2) {
             fileReader2.readAsDataURL(file2);
@@ -26,7 +26,7 @@ class CoverPhotoForm extends React.Component {
     }
 
     handleSubmit2(e) {
-        e.preventDefault();
+       
         const formData2 = new FormData();
         if (this.state.photoFile2) {
             console.log('hello2', this.state.photoFile2)
@@ -39,18 +39,24 @@ class CoverPhotoForm extends React.Component {
 
 
     render() {
-        return (
-            <form className='cover-photo-form' onSubmit={this.handleSubmit2}>
+        let editCoverPic = null;
+        if (this.props.currentUser.id === this.props.profileUser.id) {
+            editCoverPic = 
+            <form className='cover-photo-form'>
                 <label className='add-cover-photo-button' htmlFor="file-input2">
-                    <img className='add-cover-photo-image' src={window.cameraURL}/> 
+                    <img className='add-cover-photo-image' src={window.cameraURL} />
                     <div className='cover-photo-text'>Cover Photo</div>
                 </label>
                 <input id='file-input2' className='cover-photo-input' type="file"
                     onChange={this.handleFile2}
                     title=" "
                 />
-                <button>Submit cover photo</button>
             </form>
+        }
+        return (
+            <div>
+                {editCoverPic}
+            </div>
         )
     }
 }

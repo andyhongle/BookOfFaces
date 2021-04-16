@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
 import CoverPhotoForm from './cover_photos_form';
 import { updateUserPhotos } from '../../actions/session_actions';
+import { withRouter } from "react-router";
 
-const mSTP = (state) => ({
-    currentUser: state.entities.users[state.session.id]
+const mSTP = (state, ownProps) => ({
+    currentUser: state.entities.users[state.session.id],
+    profileUser: state.entities.users[ownProps.match.params.userId]
 })
 
 const mDTP = (dispatch) => ({
     updateUserPhotos: (user) => dispatch(updateUserPhotos(user))
 })
 
-export default connect(mSTP, mDTP)(CoverPhotoForm)
+export default withRouter(connect(mSTP, mDTP)(CoverPhotoForm))
