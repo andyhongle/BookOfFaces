@@ -29,17 +29,14 @@ Login
 
 ### Profiles 
 
-Profile
 ![](https://i.imgur.com/FJIMuuo.png)
 
 ### Posts/Comments
 
-Posts/Comments
 ![](https://i.imgur.com/NmS7wf6.png)
 
 ### News Feed
 
-News Feed
 ![](https://i.imgur.com/LQXqQpk.png)
 
 ## Code Snippets
