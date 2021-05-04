@@ -6,11 +6,11 @@ class BioForm extends React.Component {
         super(props);
 
         this.state = {
-            bio: '', 
-            education: '', 
-            hometown: '', 
-            work: '', 
-            pronunciation: ''
+            bio: this.props.profileUser.bio, 
+            education: this.props.profileUser.education, 
+            hometown: this.props.profileUser.hometown, 
+            work: this.props.profileUser.work, 
+            pronunciation: this.props.profileUser.pronunciation
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
