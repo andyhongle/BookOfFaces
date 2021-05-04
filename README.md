@@ -27,6 +27,10 @@ Sign up
 Login
 ![](https://i.imgur.com/NkJSKkr.png)
 
+### News Feed
+
+![](https://i.imgur.com/LQXqQpk.png)
+
 ### Profiles 
 
 ![](https://i.imgur.com/FJIMuuo.png)
@@ -34,10 +38,6 @@ Login
 ### Posts/Comments
 
 ![](https://i.imgur.com/NmS7wf6.png)
-
-### News Feed
-
-![](https://i.imgur.com/LQXqQpk.png)
 
 ## Code Snippets
 
