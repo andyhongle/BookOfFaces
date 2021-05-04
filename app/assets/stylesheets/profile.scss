@@ -235,6 +235,14 @@
     margin-bottom: 10px;
 }
 
+.work-container, .education-container, .hometown-container, .pronunciation-container {
+    background: none;
+}
+
+.pronunciation-container img {
+    background: none;
+}
+
 .intro-container {
     margin-top: 16px;
     background: white;
@@ -243,7 +251,7 @@
     box-shadow: 3px 3px 8px 2px #cecccc;
     width: 380px;
     margin-right: 16px;
-    height: 225px;
+    max-height: 235px;
     display: flex;
     flex-direction: column;
 }
