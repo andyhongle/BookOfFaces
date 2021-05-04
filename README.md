@@ -22,17 +22,25 @@ BookOfFaces is a [Facebook](https://www.facebook.com/) clone, that allows users 
 ### User Authentication
 
 Sign up
-![](https://puu.sh/HySDo/8ddbd0463a.png)
+![](https://i.imgur.com/9f8zIar.png)
 
 Login
-![](https://puu.sh/HySDZ/0c9eaa9c4a.png)
+![](https://i.imgur.com/NkJSKkr.png)
+
 ### Profiles 
 
+Profile
+![](https://i.imgur.com/FJIMuuo.png)
 
 ### Posts/Comments
 
+Posts/Comments
+![](https://i.imgur.com/NmS7wf6.png)
 
 ### News Feed
+
+News Feed
+![](https://i.imgur.com/LQXqQpk.png)
 
 ## Code Snippets
 
