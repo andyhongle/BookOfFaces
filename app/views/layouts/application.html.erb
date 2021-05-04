@@ -7,7 +7,16 @@
     
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    
+
+    <meta property="og:title" content="Project Title" />
+     <meta property='og:image' content="<%= image_url('project_pic.png') %>"/>
+     <meta property="og:description"
+       content="Fullstack clone of Facebook, with fully functional newsfeed, profiles, posts, and comments."
+     />
+     <meta property="og:url"
+       content="https://bookoffaces.herokuapp.com/#/"
+     />
+
     <script type="text/javascript">
       window.fblogoURL = "<%= image_url('facebook-logo-2019.png') %>";
       window.dropdownarrowURL = "<%= image_url('drop-down-arrow.png') %>";
