@@ -29,7 +29,7 @@ class Greeting extends React.Component {
                     </div>
                     <div className='about-me-buttons'>
                       <a href="https://github.com/andyhongle/BookOfFaces"><img src={window.githubIconURL}/></a>
-                      <a href="#"><img src={window.linkedinIconURL} /></a> {/*ADD LINKEDIN URL HERE*/}
+                      <a href="https://www.linkedin.com/in/andyhongle/"><img src={window.linkedinIconURL} /></a> {/*ADD LINKEDIN URL HERE*/}
                     </div>
                 </div>
               
