@@ -29,7 +29,7 @@ class CoverPhotoForm extends React.Component {
        
         const formData2 = new FormData();
         if (this.state.photoFile2) {
-            console.log('hello2', this.state.photoFile2)
+            // console.log('hello2', this.state.photoFile2)
             formData2.append('user[cover_photo]', this.state.photoFile2);
             
         }
