@@ -99,7 +99,7 @@ class SignUpForm extends React.Component {
                                 </label>
 
                                 <label className='signup-parameter'>Female
-                                <input id='radio-signup' type="radio"
+                                <input id='radio-signup1' type="radio"
                                         value="Female"
                                         onChange={this.update('gender')}
                                         className="signup-input"
@@ -108,7 +108,7 @@ class SignUpForm extends React.Component {
                                 </label>
 
                                 <label className='signup-parameter'>Other
-                                <input id='radio-signup' type="radio"
+                                <input id='radio-signup2' type="radio"
                                         value="Other"
                                         onChange={this.update('gender')}
                                         className="signup-input"
