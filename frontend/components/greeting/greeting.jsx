@@ -28,8 +28,8 @@ class Greeting extends React.Component {
                         <button onClick={this.demoLogin} className='demo-button'>Demo User</button>
                     </div>
                     <div className='about-me-buttons'>
-                      <a href="https://github.com/andyhongle/BookOfFaces"><img src={window.githubIconURL}/></a>
-                      <a href="https://www.linkedin.com/in/andyhongle/"><img src={window.linkedinIconURL} /></a> {/*ADD LINKEDIN URL HERE*/}
+                      <a href="https://github.com/andyhongle/BookOfFaces" target="_blank"><img src={window.githubIconURL}/></a>
+                      <a href="https://www.linkedin.com/in/andyhongle/" target="_blank"><img src={window.linkedinIconURL} /></a> {/*ADD LINKEDIN URL HERE*/}
                     </div>
                 </div>
               

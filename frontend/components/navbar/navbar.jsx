@@ -21,11 +21,11 @@ class NavBar extends React.Component {
                         <div className='shortcut-title-image'>
                             <div className='linkedin-container'>
                                 <img className='linkedin-image' src={window.linkedinIconURL} />
-                                <a className='shortcut-text' href="https://www.linkedin.com/in/andyhongle/">LinkedIn</a>
+                                <a className='shortcut-text' target="_blank" href="https://www.linkedin.com/in/andyhongle/">LinkedIn</a>
                             </div>
                             <div className='github-container'>
                                 <img className='github-image' src={window.githubIconURL} />
-                                <a className='shortcut-text' href="https://github.com/andyhongle/BookOfFaces">Github</a>
+                                <a className='shortcut-text' target="_blank" href="https://github.com/andyhongle/BookOfFaces">Github</a>
                             </div>
                         </div>
                     </div>

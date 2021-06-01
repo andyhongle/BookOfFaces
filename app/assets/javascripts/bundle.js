@@ -1042,11 +1042,13 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       }, "Demo User")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "about-me-buttons"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "https://github.com/andyhongle/BookOfFaces"
+        href: "https://github.com/andyhongle/BookOfFaces",
+        target: "_blank"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         src: window.githubIconURL
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "#"
+        href: "https://www.linkedin.com/in/andyhongle/",
+        target: "_blank"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         src: window.linkedinIconURL
       })), " ")));
@@ -1177,7 +1179,8 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         src: window.linkedinIconURL
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "shortcut-text",
-        href: "#"
+        target: "_blank",
+        href: "https://www.linkedin.com/in/andyhongle/"
       }, "LinkedIn")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "github-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
@@ -1185,6 +1188,7 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         src: window.githubIconURL
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "shortcut-text",
+        target: "_blank",
         href: "https://github.com/andyhongle/BookOfFaces"
       }, "Github"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "nav-right"
@@ -1980,7 +1984,7 @@ var CoverPhotoForm = /*#__PURE__*/function (_React$Component) {
       var formData2 = new FormData();
 
       if (this.state.photoFile2) {
-        console.log('hello2', this.state.photoFile2);
+        // console.log('hello2', this.state.photoFile2)
         formData2.append('user[cover_photo]', this.state.photoFile2);
       }
 
@@ -3664,7 +3668,7 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderErrors",
     value: function renderErrors() {
-      console.log(this.props.errors);
+      // console.log(this.props.errors)
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, this.props.errors.map(function (error, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
           className: "signup-error",
@@ -3736,7 +3740,7 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         className: "signup-parameter"
       }, "Female", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-        id: "radio-signup",
+        id: "radio-signup1",
         type: "radio",
         value: "Female",
         onChange: this.update('gender'),
@@ -3745,7 +3749,7 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         className: "signup-parameter"
       }, "Other", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-        id: "radio-signup",
+        id: "radio-signup2",
         type: "radio",
         value: "Other",
         onChange: this.update('gender'),
