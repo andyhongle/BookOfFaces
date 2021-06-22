@@ -91,14 +91,14 @@ input[type="radio"] {
   vertical-align: middle;
 }
 
-// input[type="date"] {
-//   border-radius: 5px;
-//   border: 1px solid #dddfe2;
-//   font: 400 13.3333px Arial;
-//   cursor: pointer;
-//   font-size: 18px;
+input[type="date"] {
+  border-radius: 5px;
+  border: 1px solid #dddfe2;
+  font: 400 13.3333px Arial;
+  cursor: pointer;
+  font-size: 18px;
 
-// }
+}
 
 input::-webkit-calendar-picker-indicator {
     cursor: pointer;
