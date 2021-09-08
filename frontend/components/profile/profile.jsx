@@ -48,7 +48,7 @@ class Profile extends React.Component {
                     <ProfilePhotoFormContainer />
                     <CoverPhotoFormContainer />
                     <div className="profile-name">
-                        {this.props.profileUser.first_name}
+                        {this.props.profileUser.first_name}&nbsp;
                         {this.props.profileUser.last_name}
                     </div>
                     <div className="profile-bio">
