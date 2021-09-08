@@ -5,7 +5,6 @@ import LoginFormContainer from './session_form/login_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import NewsFeedContainer from './news_feed/news_feed_container';
-import Modal from './session_form/modal';
 import ProfileContainer from './profile/profile_container';
 import NavBarContainer from './navbar/navbar_container';
 import BioFormContainer from './profile/edit_bio_container';
